@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_cart/screens/product_detail.dart';
 
-class RecentProducts extends StatefulWidget {
+class SimilarProducts extends StatefulWidget {
   @override
-  _RecentProductsState createState() => _RecentProductsState();
+  _SimilarProductsState createState() => _SimilarProductsState();
 }
 
-class _RecentProductsState extends State<RecentProducts> {
+class _SimilarProductsState extends State<SimilarProducts> {
   var _products = [
     {
       'name': 'Blazer',
@@ -36,14 +35,7 @@ class _RecentProductsState extends State<RecentProducts> {
       'oldPrice': 1020,
       'price': 910,
     },
-    // {
-    //   'name': 'Dress',
-    //   'image': 'images/santosImages/dress1.jpeg',
-    //   'oldPrice': 20,
-    //   'price': 100,
-    // }
   ];
-
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -54,18 +46,17 @@ class _RecentProductsState extends State<RecentProducts> {
             tag: _products[i]['name'],
             child: Material(
               child: InkWell(
-                onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => ProductDetails(
-                              product_details_name: _products[i]['name'],
-                              product_details_image: _products[i]['image'],
-                              product_details_oldPrice: _products[i]
-                                  ['oldPrice'],
-                              product_details_price: _products[i]['price'],
-                              product_details_desc: _products[i]['prodDesc'],
-                            ),
-                      ),
-                    ),
+                // onTap: () => Navigator.of(context).push(
+                //       MaterialPageRoute(
+                //         builder: (context) => ProductDetails(
+                //               product_details_name: _products[i]['name'],
+                //               product_details_image: _products[i]['image'],
+                //               product_details_oldPrice: _products[i]['oldPrice'],
+                //               product_details_price: _products[i]['price'],
+                //               product_details_desc: _products[i]['prodDesc'],
+                //             ),
+                //       ),
+                //     ),
                 child: GridTile(
                   child: Image.asset(
                     _products[i]['image'],
@@ -91,6 +82,13 @@ class _RecentProductsState extends State<RecentProducts> {
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
                           ),
+                          // subtitle: Text(
+                          //   "₹ ${_products[i]['oldPrice']}",
+                          //   style: TextStyle(
+                          //       color: Colors.white,
+                          //       fontWeight: FontWeight.w500,
+                          //       decoration: TextDecoration.lineThrough),
+                          // ),
                         ],
                       ),
                     ),

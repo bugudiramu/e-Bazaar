@@ -43,13 +43,13 @@ class MyDrawer extends StatelessWidget {
               (Icons.shopping_basket),
             ),
           ),
-          InkWell(
-            onTap: () {},
-            child: _showList(
-              "Categories",
-              (Icons.dashboard),
-            ),
-          ),
+          // InkWell(
+          //   onTap: () {},
+          //   child: _showList(
+          //     "Categories",
+          //     (Icons.dashboard),
+          //   ),
+          // ),
           InkWell(
             onTap: () {},
             child: _showList(

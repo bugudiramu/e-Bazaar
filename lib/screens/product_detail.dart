@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_cart/ui/similar_products.dart';
 
 class ProductDetails extends StatefulWidget {
   final product_details_name;
   final product_details_image;
   final product_details_oldPrice;
   final product_details_price;
+  final product_details_desc;
 
   ProductDetails(
       {this.product_details_name,
       this.product_details_image,
       this.product_details_oldPrice,
-      this.product_details_price});
+      this.product_details_price,
+      this.product_details_desc});
 
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
@@ -45,17 +48,17 @@ class _ProductDetailsState extends State<ProductDetails> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.only(top: 20.0, left: 20.0),
                 child: Text(
                   "${widget.product_details_name}",
                   style: TextStyle(
-                      color: Colors.blue,
+                      color: Color(0xFFB33771),
                       fontWeight: FontWeight.bold,
                       fontSize: 20.0),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.only(top: 20.0, left: 20.0),
                 child: IconButton(
                   color: Color(0xFFB33771),
                   icon: Icon(Icons.favorite_border),
@@ -66,7 +69,10 @@ class _ProductDetailsState extends State<ProductDetails> {
           ),
           Container(
             height: 300.0,
-            child: Image.asset(widget.product_details_image),
+            child: Image.asset(
+              widget.product_details_image,
+              // fit: BoxFit.cover,
+            ),
           ),
           // --------------- Size , Color ,Quantity Buttons------------------
           Row(
@@ -188,12 +194,38 @@ class _ProductDetailsState extends State<ProductDetails> {
               color: Color(0xFFB33771),
             ),
           ),
+
+          // -------- About this Item ------------
+          Padding(
+            padding: const EdgeInsets.only(left: 5.0, top: 20.0, bottom: 20.0),
+            child: ListTile(
+              title: Text(
+                "About this Item",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: 5.0),
+                child: Text("${widget.product_details_desc}"),
+              ),
+            ),
+          ),
+          Padding(
+            child: Text(
+              "Similar Products",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+            ),
+            padding: EdgeInsets.only(left: 20.0, bottom: 10.0),
+          ),
+          Container(
+            height: 400.0,
+            child: SimilarProducts(),
+          ),
         ],
       ),
     );
   }
 
-  Widget _showDialog(String s, String c) {
+  _showDialog(String s, String c) {
     var _alert = AlertDialog(
       title: Text(s),
       content: Text(c),

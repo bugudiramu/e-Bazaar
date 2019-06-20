@@ -15,7 +15,6 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: MyDrawer(),
       appBar: AppBar(
-        
         elevation: 0,
         backgroundColor: Color(0xFFB33771),
         title: Text("e-Bazaar"),
@@ -40,12 +39,15 @@ class _HomePageState extends State<HomePage> {
           _categories(),
           CategoryImages(),
           Padding(
-            child: Text("Recent Products"),
+            child: Text(
+              "Recent Products",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+            ),
             padding: EdgeInsets.all(10.0),
           ),
           //grid view
           Container(
-            height: 320.0,
+            height: 400.0,
             child: RecentProducts(),
           ),
         ],
@@ -58,12 +60,9 @@ class _HomePageState extends State<HomePage> {
       height: 200.0,
       child: Carousel(
         dotSize: 5.0,
-        autoplayDuration: Duration(milliseconds: 1000),
-        // dotColor: Colors.white,
-        indicatorBgPadding: 10.0,
-        animationDuration: Duration(milliseconds: 1000),
         autoplay: false,
         animationCurve: Curves.easeInOutSine,
+        dotBgColor: Colors.transparent,
         boxFit: BoxFit.cover,
         images: [
           AssetImage('images/c1.jpg'),
@@ -80,7 +79,10 @@ class _HomePageState extends State<HomePage> {
   Widget _categories() {
     return Padding(
       padding: EdgeInsets.all(10.0),
-      child: Text("Categories"),
+      child: Text(
+        "Categories",
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+      ),
     );
   }
 }
