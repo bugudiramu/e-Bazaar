@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:shopping_cart/screens/cart.dart';
 import 'package:shopping_cart/ui/drawer.dart';
 import 'package:shopping_cart/ui/recent_products.dart';
 import '../ui/category_images.dart';
@@ -28,7 +29,8 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: Icon(Icons.shopping_cart),
             onPressed: () {
-              print("Cart");
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => Cart()));
             },
           ),
         ],

@@ -23,7 +23,7 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () => Navigator.of(context).pop(),
             child: _showList(
               "Home",
               (Icons.home),

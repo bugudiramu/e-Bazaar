@@ -14,3 +14,4 @@ void main() => runApp(
         darkTheme: ThemeData(brightness: Brightness.dark),
       ),
     );
+// ₹

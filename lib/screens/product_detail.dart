@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/ui/similar_products.dart';
 
+import 'cart.dart';
+
 class ProductDetails extends StatefulWidget {
   final product_details_name;
   final product_details_image;
@@ -37,7 +39,8 @@ class _ProductDetailsState extends State<ProductDetails> {
           IconButton(
             icon: Icon(Icons.shopping_cart),
             onPressed: () {
-              print("Cart");
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => Cart()));
             },
           ),
         ],
