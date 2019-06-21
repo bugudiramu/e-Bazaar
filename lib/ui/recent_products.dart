@@ -57,12 +57,12 @@ class _RecentProductsState extends State<RecentProducts> {
                 onTap: () => Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => ProductDetails(
-                              product_details_name: _products[i]['name'],
-                              product_details_image: _products[i]['image'],
-                              product_details_oldPrice: _products[i]
+                              productDetailsName: _products[i]['name'],
+                              productDetailsImage: _products[i]['image'],
+                              productDetailsoldPrice: _products[i]
                                   ['oldPrice'],
-                              product_details_price: _products[i]['price'],
-                              product_details_desc: _products[i]['prodDesc'],
+                              productDetailsPrice: _products[i]['price'],
+                              productDetailsDesc: _products[i]['prodDesc'],
                             ),
                       ),
                     ),

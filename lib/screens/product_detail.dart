@@ -4,18 +4,18 @@ import 'package:shopping_cart/ui/similar_products.dart';
 import 'cart.dart';
 
 class ProductDetails extends StatefulWidget {
-  final product_details_name;
-  final product_details_image;
-  final product_details_oldPrice;
-  final product_details_price;
-  final product_details_desc;
+  final productDetailsName;
+  final productDetailsImage;
+  final productDetailsoldPrice;
+  final productDetailsPrice;
+  final productDetailsDesc;
 
   ProductDetails(
-      {this.product_details_name,
-      this.product_details_image,
-      this.product_details_oldPrice,
-      this.product_details_price,
-      this.product_details_desc});
+      {this.productDetailsName,
+      this.productDetailsImage,
+      this.productDetailsoldPrice,
+      this.productDetailsPrice,
+      this.productDetailsDesc});
 
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
@@ -53,7 +53,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               Padding(
                 padding: const EdgeInsets.only(top: 20.0, left: 20.0),
                 child: Text(
-                  "${widget.product_details_name}",
+                  "${widget.productDetailsName}",
                   style: TextStyle(
                       color: Color(0xFFB33771),
                       fontWeight: FontWeight.bold,
@@ -73,7 +73,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           Container(
             height: 300.0,
             child: Image.asset(
-              widget.product_details_image,
+              widget.productDetailsImage,
               // fit: BoxFit.cover,
             ),
           ),
@@ -139,7 +139,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               children: <Widget>[
                 Text("M.R.P. :  "),
                 Text(
-                  " ₹ ${widget.product_details_oldPrice}",
+                  " ₹ ${widget.productDetailsoldPrice}",
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
                       decoration: TextDecoration.lineThrough),
@@ -153,7 +153,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               children: <Widget>[
                 Text("Price :  "),
                 Text(
-                  " ₹ ${widget.product_details_price}",
+                  " ₹ ${widget.productDetailsPrice}",
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                   ),
@@ -167,7 +167,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               children: <Widget>[
                 Text("You Save :  "),
                 Text(
-                  " ₹ ${widget.product_details_oldPrice - widget.product_details_price} Inclusive all taxes",
+                  " ₹ ${widget.productDetailsoldPrice - widget.productDetailsPrice} Inclusive all taxes",
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                   ),
@@ -208,7 +208,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 5.0),
-                child: Text("${widget.product_details_desc}"),
+                child: Text("${widget.productDetailsDesc}"),
               ),
             ),
           ),
