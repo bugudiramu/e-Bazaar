@@ -35,12 +35,13 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: ListView(
+      body: Column(
         children: <Widget>[
           _imgCarousel(),
           _categories(),
           CategoryImages(),
-          Padding(
+          Container(
+            alignment: Alignment.centerLeft,
             child: Text(
               "Recent Products",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
@@ -48,8 +49,7 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.all(10.0),
           ),
           //grid view
-          Container(
-            height: 400.0,
+          Flexible(
             child: RecentProducts(),
           ),
         ],
@@ -79,8 +79,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _categories() {
-    return Padding(
+    return Container(
       padding: EdgeInsets.all(10.0),
+      alignment: Alignment.centerLeft,
       child: Text(
         "Categories",
         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),

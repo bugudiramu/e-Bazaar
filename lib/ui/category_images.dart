@@ -5,7 +5,7 @@ class CategoryImages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100.0,
+      // width: 100.0,
       height: 80.0,
       child: ListView(
         scrollDirection: Axis.horizontal,
