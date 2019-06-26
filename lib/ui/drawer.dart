@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_cart/screens/loginPage.dart';
 
 class MyDrawer extends StatelessWidget {
   @override
@@ -76,6 +77,16 @@ class MyDrawer extends StatelessWidget {
             child: _showList(
               "Contact",
               (Icons.contact_phone),
+            ),
+          ),
+           InkWell(
+            onTap: () {
+               Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => Login()));
+            },
+            child: _showList(
+              "LogOut",
+              (Icons.exit_to_app),
             ),
           ),
         ],

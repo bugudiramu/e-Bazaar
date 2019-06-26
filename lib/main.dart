@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'ui/homepage.dart';
+import 'screens/loginPage.dart';
 
 void main() => runApp(
       MaterialApp(
         title: "e-Bazaar",
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
-        theme: ThemeData(
-          brightness: Brightness.light,
-          // primarySwatch: Colors.red,
-          // primaryColor: Colors.red
-        ),
-        darkTheme: ThemeData(brightness: Brightness.dark),
+        home: Login(),
+        theme:
+            ThemeData(brightness: Brightness.light, fontFamily: 'Montserrat'),
+        darkTheme:
+            ThemeData(brightness: Brightness.dark, fontFamily: 'Montserrat'),
       ),
     );
+
+// Mostly Used Components
 // ₹
+//  color: Color(0xFFB33771)
