@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/screens/loginPage.dart';
 import 'package:shopping_cart/ui/homepage.dart';
+//import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shopping_cart/firebaseDB/userManagement.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class SignUp extends StatefulWidget {
   @override
@@ -9,11 +14,40 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+//  Firestore firestore = Firestore.instance;
+  UserManagement userManagement = UserManagement();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  TextEditingController _confirmPasswordController = TextEditingController();
   TextEditingController _nameController = TextEditingController();
 
   bool hidePass = true;
+  SharedPreferences preferences;
+  bool isLoading = false;
+  bool isLoggedIn = false;
+
+
+  @override
+  void initState() {
+    super.initState();
+    isSignedIn();
+  }
+
+  void isSignedIn() async {
+    setState(() {
+      isLoading = true;
+    });
+    preferences = await SharedPreferences.getInstance();
+    if (isLoggedIn) {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => HomePage()));
+    }
+    setState(() {
+      isLoading = false;
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -115,14 +149,15 @@ class _SignUpState extends State<SignUp> {
                       controller: _nameController,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
                             borderSide: BorderSide(color: Colors.black),
                           ),
                           prefixIcon: Icon(Icons.supervised_user_circle,
                               color: Colors.blueGrey),
                           hintText: "Username",
                           labelStyle: TextStyle(
-                              // color: Colors.white,
-                              ),
+                            // color: Colors.white,
+                          ),
                           labelText: "Username"),
                       validator: (val) {
                         if (val.isEmpty) {
@@ -142,14 +177,15 @@ class _SignUpState extends State<SignUp> {
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
                             borderSide: BorderSide(color: Colors.black),
                           ),
                           prefixIcon:
-                              Icon(Icons.person, color: Colors.blueGrey),
+                          Icon(Icons.alternate_email, color: Colors.blueGrey),
                           hintText: "Email",
                           labelStyle: TextStyle(
-                              // color: Colors.white,
-                              ),
+                            // color: Colors.white,
+                          ),
                           labelText: "Email"),
                       validator: (val) {
                         if (val.isEmpty) {
@@ -169,7 +205,7 @@ class _SignUpState extends State<SignUp> {
                     // ),
                     TextFormField(
                       controller: _passwordController,
-                      obscureText: true,
+                      obscureText: hidePass,
                       decoration: InputDecoration(
                           suffixIcon: IconButton(
                             icon: Icon(
@@ -186,12 +222,15 @@ class _SignUpState extends State<SignUp> {
                             Icons.lock,
                             color: Colors.blueGrey,
                           ),
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
                           hintText: "Password",
                           labelText: "Password"),
                       validator: (val) {
-                        if (val.length < 4) {
-                          return "Passsword must contain atleast 4 characters";
+                        if (val.length < 6) {
+                          return "Passsword must contain atleast 6 characters";
                         }
                       },
                       onSaved: (val) {
@@ -199,36 +238,58 @@ class _SignUpState extends State<SignUp> {
                       },
                       autocorrect: true,
                     ),
-                    // SizedBox(
-                    //   height: 10.0,
-                    // ),
-                    // TextFormField(
-                    //   controller: _confirmPassowrdController,
-                    //   obscureText: true,
-                    //   decoration: InputDecoration(
-                    //       prefixIcon: Icon(
-                    //         Icons.lock,
-                    //         color: Colors.blueGrey,
-                    //       ),
-                    //       border: OutlineInputBorder(),
-                    //       hintText: "Confirm Password",
-                    //       labelText: "Confirm Password"),
-                    //   validator: (val) {
-                    //     if (val.length < 4) {
-                    //       return "Passsword Same As Above";
-                    //     }
-                    //   },
-                    //   onSaved: (val) {
-                    //     _confirmPassowrdController.text = val;
-                    //   },
-                    //   autocorrect: true,
-                    // ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      controller: _confirmPasswordController,
+                      obscureText: hidePass,
+                      decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              Icons.remove_red_eye,
+                              color: Colors.blueGrey,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                hidePass = false;
+                              });
+                            },
+                          ),
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: Colors.blueGrey,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          hintText: "Confirm Password",
+                          labelText: "Confirm Password"),
+                      validator: (val) {
+                        if (val.length < 6) {
+                          return "Passsword must contain atleast 6 characters";
+                        } else if (val.isEmpty) {
+                          return "Password field can't be empty";
+                        } else if (_passwordController.text != val) {
+                          return "Password and Confirm Password didn't match";
+                        }
+                      },
+                      onSaved: (val) {
+                        _passwordController.text = val;
+                      },
+                      autocorrect: true,
+                    ),
+
                     SizedBox(
                       height: 20.0,
                     ),
                     //  ================== Login Btn =======================
                     MaterialButton(
-                      minWidth: MediaQuery.of(context).size.width,
+                      minWidth: MediaQuery
+                          .of(context)
+                          .size
+                          .width,
                       child: ListTile(
                         title: Center(
                           child: Text(
@@ -237,7 +298,9 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () async{
+                        validateForm();
+                      },
                       color: Color(0xFFB33771),
                     ),
 
@@ -250,28 +313,15 @@ class _SignUpState extends State<SignUp> {
                     SizedBox(
                       height: 5.0,
                     ),
-                    //  ==================start: Login with Facebook Btn =======================
-                    // MaterialButton(
-                    //   minWidth: MediaQuery.of(context).size.width,
-                    //   child: ListTile(
-                    //       leading: Image.asset(
-                    //         "images/facebook.png",
-                    //         height: 30.0,
-                    //       ),
-                    //       title: Text(
-                    //         "Signup With Facebook",
-                    //         style: _btnStyle(),
-                    //       )),
-                    //   onPressed: () {},
-                    //   color: Colors.blue,
-                    // ),
-                    //  ==================start: Login with Facebook Btn =======================
-
+                    
                     SizedBox(
                       height: 5.0,
                     ),
                     MaterialButton(
-                      minWidth: MediaQuery.of(context).size.width,
+                      minWidth: MediaQuery
+                          .of(context)
+                          .size
+                          .width,
                       child: ListTile(
                         title: Center(
                           child: Text(
@@ -292,7 +342,10 @@ class _SignUpState extends State<SignUp> {
                     //  ================== Login with Google Btn =======================
 
                     MaterialButton(
-                      minWidth: MediaQuery.of(context).size.width,
+                      minWidth: MediaQuery
+                          .of(context)
+                          .size
+                          .width,
                       child: ListTile(
                         leading: Image.asset(
                           "images/google.png",
@@ -307,6 +360,18 @@ class _SignUpState extends State<SignUp> {
                       color: Colors.redAccent,
                     ),
                   ],
+                ),
+              ),
+              Visibility(
+                visible: isLoading ?? true,
+                child: Center(
+                  child: Container(
+                    alignment: Alignment.center,
+                    color: Colors.white.withOpacity(0.9),
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -330,5 +395,31 @@ class _SignUpState extends State<SignUp> {
       letterSpacing: 0.8,
       decoration: TextDecoration.underline,
     );
+  }
+
+  Future validateForm() async {
+    FormState formState = _formKey.currentState;
+    if (formState.validate()) {
+     formState.reset();
+      FirebaseUser user = await firebaseAuth.currentUser();
+      if (user == null) {
+        firebaseAuth.createUserWithEmailAndPassword(
+            email: _emailController.text, password: _passwordController.text)
+            .then((user) {
+          // here user.uid triggers an id inside the user which should match id of the user document
+          userManagement.createUser(user.uid, {
+            'username': user.displayName,
+            'email': user.email,
+            'userId': user.uid.toString(),
+          }).CatchError((e) {
+            print(e.toString());
+          });
+         
+        });
+         Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => HomePage()));
+
+      }
+    }
   }
 }

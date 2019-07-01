@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/screens/loginPage.dart';
 
@@ -79,10 +80,15 @@ class MyDrawer extends StatelessWidget {
               (Icons.contact_phone),
             ),
           ),
-           InkWell(
+          InkWell(
             onTap: () {
-               Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => Login()));
+              FirebaseAuth.instance.signOut().then((value) {
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (context) => Login()));
+              });
+
+              //    Navigator.of(context).push(MaterialPageRoute(
+              //                 builder: (context) => Login()));
             },
             child: _showList(
               "LogOut",

@@ -7,7 +7,7 @@ void main() => runApp(
         debugShowCheckedModeBanner: false,
         home: Login(),
         theme:
-            ThemeData(brightness: Brightness.light, fontFamily: 'Montserrat'),
+            ThemeData(brightness: Brightness.light, fontFamily: 'Montserrat',primaryColor: Color(0xFFB33771)),
         darkTheme:
             ThemeData(brightness: Brightness.dark, fontFamily: 'Montserrat'),
       ),
@@ -16,3 +16,5 @@ void main() => runApp(
 // Mostly Used Components
 // ₹
 //  color: Color(0xFFB33771)
+// For Android-X error use multiDexEnabled true in app(build.gradle) defaultConfig {}
+// android.useAndroidX=true, android.enable Jetifier=true in gradle.properties
