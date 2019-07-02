@@ -1,8 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/screens/loginPage.dart';
+import 'package:shopping_cart/screens/myAccount.dart';
 
 class MyDrawer extends StatefulWidget {
+  // bool darkmode = false;
+  // MyDrawer(this.darkmode);
   @override
   _MyDrawerState createState() => _MyDrawerState();
 }
@@ -10,6 +13,7 @@ class MyDrawer extends StatefulWidget {
 class _MyDrawerState extends State<MyDrawer> {
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   FirebaseUser currentUser;
+  bool darkmode = false;
   @override
   void initState() {
     super.initState();
@@ -27,9 +31,12 @@ class _MyDrawerState extends State<MyDrawer> {
 
   String userName() {
     if (currentUser != null) {
+      if (currentUser.displayName == null) {
+        return currentUser.email.replaceAll('@gmail.com', '');
+      }
       return currentUser.displayName;
     } else {
-      return "No UserName";
+      return "";
     }
   }
 
@@ -71,6 +78,18 @@ class _MyDrawerState extends State<MyDrawer> {
               ),
             ),
           ),
+          ListTile(
+            leading: Icon(Icons.dashboard),
+            title: Text("DarkMode"),
+            trailing: Switch(
+              value: darkmode,
+              onChanged: (val) {
+                setState(() {
+                  darkmode = val;
+                });
+              },
+            ),
+          ),
           InkWell(
             onTap: () => Navigator.of(context).pop(),
             child: _showList(
@@ -79,7 +98,10 @@ class _MyDrawerState extends State<MyDrawer> {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => MyAccount()));
+            },
             child: _showList(
               "My Account",
               (Icons.account_box),
@@ -92,13 +114,6 @@ class _MyDrawerState extends State<MyDrawer> {
               (Icons.shopping_basket),
             ),
           ),
-          // InkWell(
-          //   onTap: () {},
-          //   child: _showList(
-          //     "Categories",
-          //     (Icons.dashboard),
-          //   ),
-          // ),
           InkWell(
             onTap: () {},
             child: _showList(

@@ -9,29 +9,25 @@ class _SimilarProductsState extends State<SimilarProducts> {
   var _products = [
     {
       'name': 'Blazer',
-      'image': 'images/santosImages/blazer1.jpeg',
+      'image': 'images/recentImages/blazer1.jpeg',
       'oldPrice': 1200,
       'price': 900,
-      'prodDesc':
-          "A blazer is a type of jacket resembling a suit jacket, but cut more casually. A blazer is generally distinguished from a sport coat as a more formal garment and tailored from solid colour fabrics. Blazers often have naval-style metal buttons to reflect their origins as jackets worn by boating club members. A blazer's cloth is usually durable, as it is intended as outdoor wear. Blazers are often part of a uniform that denotes, for example, an airline's employees, pupils of a particular school, members of sports clubs, or sportsmen and women on a particular team.",
     },
     {
       'name': 'Dress',
-      'image': 'images/santosImages/dress1.jpeg',
+      'image': 'images/recentImages/dress1.jpeg',
       'oldPrice': 888,
       'price': 200,
-      'prodDesc':
-          "A dress (also known as a frock or a gown) is a garment consisting of a skirt with an attached bodice (or a matching bodice giving the effect of a one-piece garment).[1] It consists of a top piece that covers the torso and hangs down over the legs. A dress can be any one-piece garment containing a skirt of any length. Dresses can be formal or informal. In many cultures, dresses are more often worn by women and girls.The hemlines of dresses vary depending on the fashion of the time period and the modesty or personal taste of the wearer"
     },
     {
-      'name': 'Heals',
-      'image': 'images/santosImages/hills1.jpeg',
+      'name': 'Heals1',
+      'image': 'images/recentImages/skt1.jpeg',
       'oldPrice': 1020,
       'price': 910,
     },
     {
-      'name': 'Heals1',
-      'image': 'images/santosImages/hills2.jpeg',
+      'name': 'Heals',
+      'image': 'images/recentImages/hills1.jpeg',
       'oldPrice': 1020,
       'price': 910,
     },
@@ -46,17 +42,6 @@ class _SimilarProductsState extends State<SimilarProducts> {
             tag: _products[i]['name'],
             child: Material(
               child: InkWell(
-                // onTap: () => Navigator.of(context).push(
-                //       MaterialPageRoute(
-                //         builder: (context) => ProductDetails(
-                //               product_details_name: _products[i]['name'],
-                //               product_details_image: _products[i]['image'],
-                //               product_details_oldPrice: _products[i]['oldPrice'],
-                //               product_details_price: _products[i]['price'],
-                //               product_details_desc: _products[i]['prodDesc'],
-                //             ),
-                //       ),
-                //     ),
                 child: GridTile(
                   child: Image.asset(
                     _products[i]['image'],
@@ -82,13 +67,6 @@ class _SimilarProductsState extends State<SimilarProducts> {
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
                           ),
-                          // subtitle: Text(
-                          //   "₹ ${_products[i]['oldPrice']}",
-                          //   style: TextStyle(
-                          //       color: Colors.white,
-                          //       fontWeight: FontWeight.w500,
-                          //       decoration: TextDecoration.lineThrough),
-                          // ),
                         ],
                       ),
                     ),

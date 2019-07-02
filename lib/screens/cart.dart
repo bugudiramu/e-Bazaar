@@ -13,7 +13,7 @@ class _CartState extends State<Cart> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color(0xFFB33771),
-        title: Text("e-Bazaar"),
+        title: Text("Cart"),
       ),
       body: ListView(
         children: <Widget>[

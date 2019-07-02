@@ -3,7 +3,6 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:shopping_cart/screens/cart.dart';
 import 'package:shopping_cart/ui/drawer.dart';
 import 'package:shopping_cart/ui/recent_products.dart';
-import '../ui/category_images.dart';
 
 class HomePage extends StatefulWidget {
   final searchProdName;
@@ -26,31 +25,10 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: MyDrawer(),
       appBar: AppBar(
+        titleSpacing: 2.0,
         elevation: 0,
         backgroundColor: Color(0xFFB33771),
         title: Text("e-Bazaar"),
-        // title: Material(
-        //   // color: Colors.grey.withOpacity(0.1),
-        //   child: ListTile(
-
-        //     title: TextFormField(
-        //       controller: _searchController,
-        //       decoration: InputDecoration(
-        //         border: InputBorder.none,
-        //         hintText: "Search",
-        //       ),
-        //       validator: (val) {
-        //         if (val.isEmpty) {
-        //           return "Please Provide Email";
-        //         }
-        //       },
-        //       onSaved: (val) {
-        //         _searchController.text = val;
-        //       },
-        //       autocorrect: true,
-        //     ),
-        //   ),
-        // ),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
@@ -70,8 +48,8 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: <Widget>[
           _imgCarousel(),
-          _categories(),
-          CategoryImages(),
+          // _categories(),
+          // CategoryImages(),
           Container(
             alignment: Alignment.centerLeft,
             child: Text(
@@ -82,7 +60,10 @@ class _HomePageState extends State<HomePage> {
           ),
           //grid view
           Flexible(
-            child: RecentProducts(),
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 20.0),
+              child: RecentProducts(),
+            ),
           ),
         ],
       ),
@@ -93,9 +74,11 @@ class _HomePageState extends State<HomePage> {
     return Container(
       height: 200.0,
       child: Carousel(
+        overlayShadow: true,
+        overlayShadowColors: Colors.black45,
         dotSize: 5.0,
-        autoplay: false,
-        animationCurve: Curves.easeInOutSine,
+        autoplay: true,
+        animationCurve: Curves.bounceInOut,
         dotBgColor: Colors.transparent,
         boxFit: BoxFit.cover,
         images: [
@@ -110,16 +93,16 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _categories() {
-    return Container(
-      padding: EdgeInsets.all(10.0),
-      alignment: Alignment.centerLeft,
-      child: Text(
-        "Categories",
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-      ),
-    );
-  }
+  // Widget _categories() {
+  //   return Container(
+  //     padding: EdgeInsets.all(10.0),
+  //     alignment: Alignment.centerLeft,
+  //     child: Text(
+  //       "Categories",
+  //       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+  //     ),
+  //   );
+  // }
 }
 
 class ProductSearch extends SearchDelegate<String> {

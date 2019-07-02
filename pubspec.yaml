@@ -66,6 +66,8 @@ flutter:
     - images/c4.jpg
     - images/c5.jpg
     - images/c6.jpg
+    - images/c7.jpg
+
     - images/facebook.png
     - images/google.png
     - images/category1.jpg
@@ -91,12 +93,14 @@ flutter:
     - images/products/skirt2.jpg
     - images/products/tshirt1.jpg
     - images/products/tshirt2.jpg
-    - images/santosImages/blazer1.jpeg
-    - images/santosImages/blazer2.jpeg
-    - images/santosImages/dress1.jpeg
-    - images/santosImages/dress2.jpeg
-    - images/santosImages/hills1.jpeg
-    - images/santosImages/hills2.jpeg
+    - images/recentImages/blazer1.jpeg
+    - images/recentImages/blazer2.jpeg
+    - images/recentImages/dress1.jpeg
+    - images/recentImages/dress2.jpeg
+    - images/recentImages/hills1.jpeg
+    - images/recentImages/hills2.jpeg
+    - images/recentImages/skt1.jpeg
+ 
 
   #  - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see

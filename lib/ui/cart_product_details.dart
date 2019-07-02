@@ -25,7 +25,7 @@ class _CartProductDetailsState extends State<CartProductDetails> {
   List _productsAddedInTheCart = [
     {
       'name': 'Blazer',
-      'image': 'images/santosImages/blazer1.jpeg',
+      'image': 'images/recentImages/blazer1.jpeg',
       'price': 900,
       'size': "M",
       'color': "Blue",
@@ -33,7 +33,7 @@ class _CartProductDetailsState extends State<CartProductDetails> {
     },
     {
       'name': 'Dress',
-      'image': 'images/santosImages/dress2.jpeg',
+      'image': 'images/recentImages/dress2.jpeg',
       'price': 200,
       'size': "L",
       'color': "Red",

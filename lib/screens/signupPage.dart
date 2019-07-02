@@ -351,7 +351,7 @@ class _SignUpState extends State<SignUp> {
                       onPressed: () async {
                         FirebaseUser user = await auth.googleSignIn();
                         if (user != null) {
-                          user.sendEmailVerification();
+                          // user.sendEmailVerification();
                           userManagement.createUser(user.uid, {
                             "userId": user.uid,
                             "username": user.displayName,
@@ -413,11 +413,11 @@ class _SignUpState extends State<SignUp> {
                 email: _emailController.text,
                 password: _passwordController.text)
             .then((user) {
-          user.sendEmailVerification();
+          // user.sendEmailVerification();
           // here user.uid triggers an id inside the user which should match id of the user document
           userManagement.createUser(user.uid, {
             'userId': user.uid.toString(),
-            'username': _nameController.text,
+            'username': _nameController.text.toString(),
             'email': _emailController.text,
           }).CatchError((e) {
             print(e.toString());

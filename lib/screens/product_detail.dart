@@ -215,6 +215,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           ),
           Container(
             height: 400.0,
+            padding: const EdgeInsets.only(bottom: 20.0),
             child: SimilarProducts(),
           ),
         ],
