@@ -14,20 +14,12 @@ class _CartState extends State<Cart> {
         elevation: 0,
         backgroundColor: Color(0xFFB33771),
         title: Text("e-Bazaar"),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              print("Search");
-            },
-          ),
-        ],
       ),
       body: ListView(
         children: <Widget>[
           Container(
             padding: EdgeInsets.all(20.0),
-            child: Text("Cart Subtotal (1 item): ₹ 200"),
+            child: Text("Cart Subtotal (1 item): ₹ 1100"),
           ),
           Padding(
             padding: const EdgeInsets.only(

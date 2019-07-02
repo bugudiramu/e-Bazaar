@@ -107,13 +107,13 @@ class _CartProductDetailsState extends State<CartProductDetails> {
                               child: Text(
                                   "₹ ${_productsAddedInTheCart[i]['price']}")),
                           IconButton(
-                            icon: Icon(Icons.arrow_drop_up),
-                            onPressed: () => incrementInQty(i),
+                            icon: Icon(Icons.arrow_drop_down),
+                            onPressed: () => decrementInQty(i),
                           ),
                           Text("${_productsAddedInTheCart[i]['qty']}"),
                           IconButton(
-                            icon: Icon(Icons.arrow_drop_down),
-                            onPressed: () => decrementInQty(i),
+                            icon: Icon(Icons.arrow_drop_up),
+                            onPressed: () => incrementInQty(i),
                           )
                         ],
                       ),
@@ -162,6 +162,8 @@ class _CartProductDetailsState extends State<CartProductDetails> {
     setState(() {
       _productsAddedInTheCart[index]['qty'] =
           _productsAddedInTheCart[index]['qty'] + 1;
+      // _productsAddedInTheCart[index]['price'] =
+      //     _productsAddedInTheCart[index]['price'] + 900;
     });
   }
 
@@ -169,6 +171,8 @@ class _CartProductDetailsState extends State<CartProductDetails> {
     setState(() {
       _productsAddedInTheCart[index]['qty'] =
           _productsAddedInTheCart[index]['qty'] - 1;
+      // _productsAddedInTheCart[index]['price'] =
+      //     _productsAddedInTheCart[index]['price'] - 200;
     });
   }
 }

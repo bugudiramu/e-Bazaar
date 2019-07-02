@@ -2,7 +2,53 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/screens/loginPage.dart';
 
-class MyDrawer extends StatelessWidget {
+class MyDrawer extends StatefulWidget {
+  @override
+  _MyDrawerState createState() => _MyDrawerState();
+}
+
+class _MyDrawerState extends State<MyDrawer> {
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  FirebaseUser currentUser;
+  @override
+  void initState() {
+    super.initState();
+    _loadCurrentUser();
+  }
+
+  void _loadCurrentUser() {
+    firebaseAuth.currentUser().then((FirebaseUser user) {
+      setState(() {
+        // call setState to rebuild the view
+        this.currentUser = user;
+      });
+    });
+  }
+
+  String userName() {
+    if (currentUser != null) {
+      return currentUser.displayName;
+    } else {
+      return "No UserName";
+    }
+  }
+
+  String email() {
+    if (currentUser != null) {
+      return currentUser.email;
+    } else {
+      return "No Email Address";
+    }
+  }
+
+  // String photoUrl() {
+  //   if (currentUser != null) {
+  //     return currentUser.photoUrl;
+  //   } else {
+  //     return "No Photo";
+  //   }
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -12,8 +58,9 @@ class MyDrawer extends StatelessWidget {
             decoration: BoxDecoration(
               color: Color(0xFFB33771),
             ),
-            accountEmail: Text("ramubugudi4@gmail.com"),
-            accountName: Text("Ramu"),
+            // accountEmail: Text("ramubugudi4@gmail.com"),
+            accountName: Text("${userName()}"),
+            accountEmail: Text("${email()}"),
             currentAccountPicture: GestureDetector(
               child: CircleAvatar(
                 backgroundColor: Colors.grey,

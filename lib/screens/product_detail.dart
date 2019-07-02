@@ -31,12 +31,6 @@ class _ProductDetailsState extends State<ProductDetails> {
         title: Text("e-Bazaar"),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              print("Search");
-            },
-          ),
-          IconButton(
             icon: Icon(Icons.shopping_cart),
             onPressed: () {
               Navigator.of(context)

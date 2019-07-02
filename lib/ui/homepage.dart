@@ -6,6 +6,16 @@ import 'package:shopping_cart/ui/recent_products.dart';
 import '../ui/category_images.dart';
 
 class HomePage extends StatefulWidget {
+  final searchProdName;
+  final searchProdImage;
+  final searchProdPrice;
+
+  HomePage({
+    this.searchProdName,
+    this.searchProdImage,
+    this.searchProdPrice,
+  });
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -19,11 +29,33 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         backgroundColor: Color(0xFFB33771),
         title: Text("e-Bazaar"),
+        // title: Material(
+        //   // color: Colors.grey.withOpacity(0.1),
+        //   child: ListTile(
+
+        //     title: TextFormField(
+        //       controller: _searchController,
+        //       decoration: InputDecoration(
+        //         border: InputBorder.none,
+        //         hintText: "Search",
+        //       ),
+        //       validator: (val) {
+        //         if (val.isEmpty) {
+        //           return "Please Provide Email";
+        //         }
+        //       },
+        //       onSaved: (val) {
+        //         _searchController.text = val;
+        //       },
+        //       autocorrect: true,
+        //     ),
+        //   ),
+        // ),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () {
-              print("Search");
+              showSearch(context: context, delegate: ProductSearch());
             },
           ),
           IconButton(
@@ -86,6 +118,81 @@ class _HomePageState extends State<HomePage> {
         "Categories",
         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
       ),
+    );
+  }
+}
+
+class ProductSearch extends SearchDelegate<String> {
+  final List searchProd = [
+    'Blazer',
+    'Dress',
+    'Kurtha',
+  ];
+  final List recentSearchProd = [
+    'Blazer',
+  ];
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    // Actions for appbar
+    return [
+      IconButton(
+        icon: Icon(Icons.clear),
+        onPressed: () {
+          query = "";
+        },
+      )
+    ];
+  }
+
+  @override
+  Widget buildLeading(BuildContext context) {
+    // Leading icon
+    return IconButton(
+      onPressed: () {
+        close(context, null);
+      },
+      icon: AnimatedIcon(
+        icon: AnimatedIcons.menu_arrow,
+        progress: transitionAnimation,
+      ),
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    // show results for given keyword
+    return null;
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    // shows suggestions for keyword
+    final suggestionList = query.isEmpty
+        ? recentSearchProd
+        : searchProd.where((s) => s.toLowerCase().startsWith(query)).toList();
+    // contains,startswith,endswith and so on
+    return ListView.builder(
+      itemCount: suggestionList.length,
+      itemBuilder: (_, int i) {
+        return ListTile(
+          onTap: () {
+            showResults(context);
+          },
+          leading: Icon(Icons.shopping_basket),
+          title: RichText(
+            text: TextSpan(
+              text: suggestionList[i].substring(0, query.length),
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              children: [
+                TextSpan(
+                    text: suggestionList[i].substring(query.length),
+                    style: TextStyle(color: Colors.grey)),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

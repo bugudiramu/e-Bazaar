@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_cart/firebaseDB/googleSignIn.dart';
 import 'package:shopping_cart/screens/loginPage.dart';
 import 'package:shopping_cart/ui/homepage.dart';
 //import 'package:cloud_firestore/cloud_firestore.dart';
@@ -6,16 +7,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shopping_cart/firebaseDB/userManagement.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 class SignUp extends StatefulWidget {
   @override
   _SignUpState createState() => _SignUpState();
 }
 
 class _SignUpState extends State<SignUp> {
+// Google sign in
+  Auth auth = Auth();
+// Google sign in
+
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-//  Firestore firestore = Firestore.instance;
   UserManagement userManagement = UserManagement();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -26,7 +29,6 @@ class _SignUpState extends State<SignUp> {
   SharedPreferences preferences;
   bool isLoading = false;
   bool isLoggedIn = false;
-
 
   @override
   void initState() {
@@ -47,7 +49,6 @@ class _SignUpState extends State<SignUp> {
       isLoading = false;
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -156,8 +157,8 @@ class _SignUpState extends State<SignUp> {
                               color: Colors.blueGrey),
                           hintText: "Username",
                           labelStyle: TextStyle(
-                            // color: Colors.white,
-                          ),
+                              // color: Colors.white,
+                              ),
                           labelText: "Username"),
                       validator: (val) {
                         if (val.isEmpty) {
@@ -180,12 +181,12 @@ class _SignUpState extends State<SignUp> {
                             borderRadius: BorderRadius.circular(20.0),
                             borderSide: BorderSide(color: Colors.black),
                           ),
-                          prefixIcon:
-                          Icon(Icons.alternate_email, color: Colors.blueGrey),
+                          prefixIcon: Icon(Icons.alternate_email,
+                              color: Colors.blueGrey),
                           hintText: "Email",
                           labelStyle: TextStyle(
-                            // color: Colors.white,
-                          ),
+                              // color: Colors.white,
+                              ),
                           labelText: "Email"),
                       validator: (val) {
                         if (val.isEmpty) {
@@ -286,10 +287,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     //  ================== Login Btn =======================
                     MaterialButton(
-                      minWidth: MediaQuery
-                          .of(context)
-                          .size
-                          .width,
+                      minWidth: MediaQuery.of(context).size.width,
                       child: ListTile(
                         title: Center(
                           child: Text(
@@ -298,8 +296,8 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
                       ),
-                      onPressed: () async{
-                        validateForm();
+                      onPressed: () async {
+                        signUpUser();
                       },
                       color: Color(0xFFB33771),
                     ),
@@ -313,50 +311,57 @@ class _SignUpState extends State<SignUp> {
                     SizedBox(
                       height: 5.0,
                     ),
-                    
-                    SizedBox(
-                      height: 5.0,
-                    ),
-                    MaterialButton(
-                      minWidth: MediaQuery
-                          .of(context)
-                          .size
-                          .width,
-                      child: ListTile(
-                        title: Center(
-                          child: Text(
-                            "Signup As Guest",
-                            style: _btnStyle(),
-                          ),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => HomePage()));
-                      },
-                      color: Colors.deepOrange,
-                    ),
-                    SizedBox(
-                      height: 15.0,
-                    ),
-                    //  ================== Login with Google Btn =======================
+
+                    // SizedBox(
+                    //   height: 5.0,
+                    // ),
+                    // MaterialButton(
+                    //   minWidth: MediaQuery.of(context).size.width,
+                    //   child: ListTile(
+                    //     title: Center(
+                    //       child: Text(
+                    //         "Signup As Guest",
+                    //         style: _btnStyle(),
+                    //       ),
+                    //     ),
+                    //   ),
+                    //   onPressed: () {
+                    //     Navigator.of(context).push(MaterialPageRoute(
+                    //         builder: (context) => HomePage()));
+                    //   },
+                    //   color: Colors.deepOrange,
+                    // ),
+                    // SizedBox(
+                    //   height: 15.0,
+                    // ),
+                    //  ================== Signin with Google Btn =======================
 
                     MaterialButton(
-                      minWidth: MediaQuery
-                          .of(context)
-                          .size
-                          .width,
+                      minWidth: MediaQuery.of(context).size.width,
                       child: ListTile(
                         leading: Image.asset(
                           "images/google.png",
                           height: 30.0,
                         ),
                         title: Text(
-                          "Signup With Google",
+                          "SignIn With Google",
                           style: _btnStyle(),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () async {
+                        FirebaseUser user = await auth.googleSignIn();
+                        if (user != null) {
+                          user.sendEmailVerification();
+                          userManagement.createUser(user.uid, {
+                            "userId": user.uid,
+                            "username": user.displayName,
+                            "photoUrl": user.photoUrl,
+                            "email": user.email,
+                          });
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => HomePage()));
+                        }
+                      },
                       color: Colors.redAccent,
                     ),
                   ],
@@ -397,28 +402,29 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  Future validateForm() async {
+  Future signUpUser() async {
     FormState formState = _formKey.currentState;
     if (formState.validate()) {
-     formState.reset();
+      formState.reset();
       FirebaseUser user = await firebaseAuth.currentUser();
       if (user == null) {
-        firebaseAuth.createUserWithEmailAndPassword(
-            email: _emailController.text, password: _passwordController.text)
+        firebaseAuth
+            .createUserWithEmailAndPassword(
+                email: _emailController.text,
+                password: _passwordController.text)
             .then((user) {
+          user.sendEmailVerification();
           // here user.uid triggers an id inside the user which should match id of the user document
           userManagement.createUser(user.uid, {
-            'username': user.displayName,
-            'email': user.email,
             'userId': user.uid.toString(),
+            'username': _nameController.text,
+            'email': _emailController.text,
           }).CatchError((e) {
             print(e.toString());
           });
-         
         });
-         Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => HomePage()));
-
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => HomePage()));
       }
     }
   }
