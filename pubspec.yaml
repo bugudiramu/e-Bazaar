@@ -100,7 +100,8 @@ flutter:
     - images/recentImages/hills1.jpeg
     - images/recentImages/hills2.jpeg
     - images/recentImages/skt1.jpeg
- 
+    - images/sunny.png
+    - images/moon.png
 
   #  - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see

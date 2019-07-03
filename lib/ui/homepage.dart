@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:shopping_cart/screens/cart.dart';
-import 'package:shopping_cart/ui/drawer.dart';
+import 'package:shopping_cart/screens/loginPage.dart';
+import 'package:shopping_cart/screens/myAccount.dart';
 import 'package:shopping_cart/ui/recent_products.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,52 +22,215 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool darkmode = false;
+
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  FirebaseUser currentUser;
+  @override
+  void initState() {
+    super.initState();
+    _loadCurrentUser();
+  }
+
+  void _loadCurrentUser() {
+    firebaseAuth.currentUser().then((FirebaseUser user) {
+      setState(() {
+        // call setState to rebuild the view
+        this.currentUser = user;
+      });
+    });
+  }
+
+  String userName() {
+    if (currentUser != null) {
+      if (currentUser.displayName == null) {
+        return currentUser.email.replaceAll('@gmail.com', '');
+      }
+      return currentUser.displayName;
+    } else {
+      return "";
+    }
+  }
+
+  String email() {
+    if (currentUser != null) {
+      return currentUser.email;
+    } else {
+      return "No Email Address";
+    }
+  }
+
+  // String photoUrl() {
+  //   if (currentUser != null) {
+  //     return currentUser.photoUrl;
+  //   } else {
+  //     return "No Photo";
+  //   }
+  // }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: MyDrawer(),
-      appBar: AppBar(
-        titleSpacing: 2.0,
-        elevation: 0,
-        backgroundColor: Color(0xFFB33771),
-        title: Text("e-Bazaar"),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              showSearch(context: context, delegate: ProductSearch());
-            },
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: darkmode
+          ? ThemeData(brightness: Brightness.dark, fontFamily: 'Montserrat')
+          : ThemeData(brightness: Brightness.light, fontFamily: 'Montserrat'),
+      home: Scaffold(
+        // Drawer Start
+        drawer: Drawer(
+          child: ListView(
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                decoration: BoxDecoration(
+                  color: Color(0xFFB33771),
+                ),
+                // accountEmail: Text("ramubugudi4@gmail.com"),
+                accountName: Text("${userName()}"),
+                accountEmail: Text("${email()}"),
+                currentAccountPicture: GestureDetector(
+                  child: CircleAvatar(
+                    backgroundColor: Colors.grey,
+                    child: Icon(
+                      Icons.person,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              ListTile(
+                leading: darkmode
+                    ? Image.asset(
+                        'images/moon.png',
+                        height: 30.0,
+                        width: 26.0,
+                      )
+                    : Image.asset(
+                        'images/sunny.png',
+                        height: 30.0,
+                        width: 26.0,
+                      ),
+                title: Text("DarkMode"),
+                trailing: Switch(
+                  value: darkmode,
+                  onChanged: (val) {
+                    setState(() {
+                      darkmode = val;
+                    });
+                  },
+                ),
+              ),
+              // InkWell(
+              //   onTap: () => Navigator.of(context).pop(),
+              //   child: _showList(
+              //     "Home",
+              //     (Icons.home),
+              //   ),
+              // ),
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => MyAccount()));
+                },
+                child: _showList(
+                  "My Account",
+                  (Icons.account_box),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                child: _showList(
+                  "My Orders",
+                  (Icons.shopping_basket),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                child: _showList(
+                  "Favorites",
+                  (Icons.favorite),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                child: _showList(
+                  "Settings",
+                  (Icons.settings),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                child: _showList(
+                  "About",
+                  (Icons.adjust),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                child: _showList(
+                  "Contact",
+                  (Icons.contact_phone),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  FirebaseAuth.instance.signOut().then((value) {
+                    Navigator.of(context).pop();
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => Login()));
+                  });
+                },
+                child: _showList(
+                  "LogOut",
+                  (Icons.exit_to_app),
+                ),
+              ),
+            ],
           ),
-          IconButton(
-            icon: Icon(Icons.shopping_cart),
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Cart()));
-            },
-          ),
-        ],
-      ),
-      body: Column(
-        children: <Widget>[
-          _imgCarousel(),
-          // _categories(),
-          // CategoryImages(),
-          Container(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              "Recent Products",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+        ),
+        // Drawer ends
+        appBar: AppBar(
+          titleSpacing: 2.0,
+          elevation: 0,
+          backgroundColor: Color(0xFFB33771),
+          title: Text("e-Bazaar"),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {
+                showSearch(context: context, delegate: ProductSearch());
+              },
             ),
-            padding: EdgeInsets.all(10.0),
-          ),
-          //grid view
-          Flexible(
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
-              child: RecentProducts(),
+            IconButton(
+              icon: Icon(Icons.shopping_cart),
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Cart()));
+              },
             ),
-          ),
-        ],
+          ],
+        ),
+        body: Column(
+          children: <Widget>[
+            _imgCarousel(),
+            // _categories(),
+            // CategoryImages(),
+            Container(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Recent Products",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+              ),
+              padding: EdgeInsets.all(10.0),
+            ),
+            //grid view
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 20.0),
+                child: RecentProducts(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -93,6 +258,16 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Widget _showList(String s, IconData i) {
+    return ListTile(
+      leading: Icon(
+        i,
+        color: Colors.yellow[700],
+      ),
+      title: Text(s),
+    );
+  }
+
   // Widget _categories() {
   //   return Container(
   //     padding: EdgeInsets.all(10.0),
@@ -104,6 +279,8 @@ class _HomePageState extends State<HomePage> {
   //   );
   // }
 }
+
+// SearchBar
 
 class ProductSearch extends SearchDelegate<String> {
   final List searchProd = [

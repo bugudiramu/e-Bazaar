@@ -6,8 +6,10 @@ void main() => runApp(
         title: "e-Bazaar",
         debugShowCheckedModeBanner: false,
         home: HomePage(),
-        theme:
-            ThemeData(brightness: Brightness.light, fontFamily: 'Montserrat',),
+        theme: ThemeData(
+          brightness: Brightness.light,
+          fontFamily: 'Montserrat',
+        ),
         darkTheme:
             ThemeData(brightness: Brightness.dark, fontFamily: 'Montserrat'),
       ),

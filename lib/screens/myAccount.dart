@@ -118,11 +118,13 @@ class _MyAccountState extends State<MyAccount> {
                 ),
               ),
               onPressed: () {
-                firebaseAuth
-                    .signOut()
-                    .then((user) => Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => Login())))
-                    .catchError((e) => print(e.toString()));
+                firebaseAuth.signOut().then((user) {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pop();
+
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => Login()));
+                }).catchError((e) => print(e.toString()));
               },
               color: Color(0xFFB33771),
             ),

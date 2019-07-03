@@ -64,9 +64,9 @@ class _SignUpState extends State<SignUp> {
             // stops: [0.1, 0.5, 0.6, 0.5],
             colors: [
               // Colors are easy thanks to Flutter's Colors class.
+              Colors.red[400],
+              Colors.red[100],
               Colors.teal[100],
-              Colors.teal[200],
-              Colors.teal[300],
               Colors.teal[400],
             ],
           ),
@@ -287,6 +287,8 @@ class _SignUpState extends State<SignUp> {
                     ),
                     //  ================== Login Btn =======================
                     MaterialButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(25.0)),
                       minWidth: MediaQuery.of(context).size.width,
                       child: ListTile(
                         title: Center(
@@ -337,6 +339,8 @@ class _SignUpState extends State<SignUp> {
                     //  ================== Signin with Google Btn =======================
 
                     MaterialButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(25.0)),
                       minWidth: MediaQuery.of(context).size.width,
                       child: ListTile(
                         leading: Image.asset(
@@ -360,6 +364,8 @@ class _SignUpState extends State<SignUp> {
                           });
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => HomePage()));
+                        } else {
+                          return Center(child: CircularProgressIndicator());
                         }
                       },
                       color: Colors.redAccent,
@@ -372,7 +378,6 @@ class _SignUpState extends State<SignUp> {
                 child: Center(
                   child: Container(
                     alignment: Alignment.center,
-                    color: Colors.white.withOpacity(0.9),
                     child: CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
                     ),
@@ -396,9 +401,9 @@ class _SignUpState extends State<SignUp> {
   TextStyle _loginRegStyles() {
     return TextStyle(
       fontWeight: FontWeight.w800,
-      fontSize: 16.0,
+      fontSize: 18.0,
       letterSpacing: 0.8,
-      decoration: TextDecoration.underline,
+      color: Color(0xFFB33771),
     );
   }
 
