@@ -11,4 +11,4 @@ A new Flutter project.
 ##  SignInWithGoogle
 ##  Forgot password and Resetting the Password.
 ##  Each section has different pages and screens
-##  Beautiful UI with Carousel and color combinations.
+##  Beautiful UI with Carousel and nice Color combinations.
