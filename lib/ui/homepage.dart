@@ -97,6 +97,7 @@ class _HomePageState extends State<HomePage> {
                     backgroundColor: Colors.grey,
                     child: Image.network(
                       '${photoUrl()}',
+                      scale: 1.0,
                     ),
                     // child: Icon(
                     //   Icons.person,
@@ -127,7 +128,6 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
               ),
-
               InkWell(
                 onTap: () {
                   Navigator.of(context).push(
@@ -148,13 +148,6 @@ class _HomePageState extends State<HomePage> {
                   (Icons.shopping_basket),
                 ),
               ),
-              // InkWell(
-              //   onTap: () {},
-              //   child: _showList(
-              //     "Favorites",
-              //     (Icons.favorite),
-              //   ),
-              // ),
               InkWell(
                 onTap: () {
                   Navigator.of(context).push(

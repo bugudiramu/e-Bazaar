@@ -43,32 +43,32 @@ class _RecentProductsState extends State<RecentProducts> {
     {
       'name': 'Blue-Jeans',
       'image': 'images/products/jeans1.jpg',
-      'oldPrice': 888,
-      'price': 200,
+      'oldPrice': 1208,
+      'price': 100,
       'prodDesc':
           'Jean also references a (historic) type of sturdy cloth commonly made with a cotton warp and wool weft (also known as "Virginia cloth"). Jean cloth can be entirely cotton as well, similar to denim. Originally designed for cowboys and miners, modern jeans became popular in the 1950s among teenagers, especially members of the greaser subculture.'
     },
     {
       'name': 'Jeans',
       'image': 'images/products/jeans2.jpg',
-      'oldPrice': 888,
-      'price': 200,
+      'oldPrice': 3000,
+      'price': 1200,
       'prodDesc':
           'Jean also references a (historic) type of sturdy cloth commonly made with a cotton warp and wool weft (also known as "Virginia cloth"). Jean cloth can be entirely cotton as well, similar to denim. Originally designed for cowboys and miners, modern jeans became popular in the 1950s among teenagers, especially members of the greaser subculture.'
     },
     {
       'name': 'Green-T-Shirt',
       'image': 'images/products/tshirt1.jpg',
-      'oldPrice': 888,
-      'price': 200,
+      'oldPrice': 500,
+      'price': 120,
       'prodDesc':
           'A T-shirt is a style of fabric shirt named after the T shape of its body and sleeves. Traditionally it has short sleeves and a round neckline, known as a crew neck, which lacks a collar. T-shirts are generally made of a stretchy, light and inexpensive fabric and are easy to clean.'
     },
     {
       'name': 'T-Shirt',
       'image': 'images/products/tshirt2.jpg',
-      'oldPrice': 888,
-      'price': 200,
+      'oldPrice': 499,
+      'price': 20,
       'prodDesc':
           'A T-shirt is a style of fabric shirt named after the T shape of its body and sleeves. Traditionally it has short sleeves and a round neckline, known as a crew neck, which lacks a collar. T-shirts are generally made of a stretchy, light and inexpensive fabric and are easy to clean.'
     },
@@ -76,31 +76,31 @@ class _RecentProductsState extends State<RecentProducts> {
       'name': 'Skirt1',
       'image': 'images/products/skirt1.jpg',
       'oldPrice': 888,
-      'price': 200,
+      'price': 220,
       'prodDesc':
           'A skirt can be a draped garment made out of a single piece of fabric (such as pareos), but most skirts are fitted to the body at the waist or hips and fuller below, with the fullness introduced by means of darts, gores, pleats, or panels. Modern skirts are usually made of light to mid-weight fabrics, such as denim, jersey, worsted, or poplin. Skirts of thin or clingy fabrics are often worn with slips to make the material of the skirt drape better and for modesty.'
     },
     {
       'name': 'Skirt2',
       'image': 'images/products/skirt2.jpg',
-      'oldPrice': 888,
-      'price': 200,
+      'oldPrice': 999,
+      'price': 233,
       'prodDesc':
           'A skirt can be a draped garment made out of a single piece of fabric (such as pareos), but most skirts are fitted to the body at the waist or hips and fuller below, with the fullness introduced by means of darts, gores, pleats, or panels. Modern skirts are usually made of light to mid-weight fabrics, such as denim, jersey, worsted, or poplin. Skirts of thin or clingy fabrics are often worn with slips to make the material of the skirt drape better and for modesty.'
     },
     {
       'name': 'Shoe1',
       'image': 'images/products/shoe1.jpg',
-      'oldPrice': 888,
-      'price': 200,
+      'oldPrice': 3999,
+      'price': 2000,
       'prodDesc':
           'A shoe is an item of footwear intended to protect and comfort the human foot while the wearer is doing various activities. Shoes are also used as an item of decoration and fashion'
     },
     {
       'name': 'Shoe2',
       'image': 'images/products/shoe2.jpg',
-      'oldPrice': 888,
-      'price': 200,
+      'oldPrice': 8999,
+      'price': 2500,
       'prodDesc':
           'A shoe is an item of footwear intended to protect and comfort the human foot while the wearer is doing various activities. Shoes are also used as an item of decoration and fashion'
     },
@@ -115,8 +115,8 @@ class _RecentProductsState extends State<RecentProducts> {
     {
       'name': 'Heel2',
       'image': 'images/products/hills2.jpg',
-      'oldPrice': 888,
-      'price': 200,
+      'oldPrice': 5000,
+      'price': 1100,
       'prodDesc':
           'High heels are a type of shoe in which the heel, compared with the toe, is significantly higher off the ground. These shoes go beyond simply protecting the foot from the ground or improving efficiency of walking.'
     },

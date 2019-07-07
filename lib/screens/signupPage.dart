@@ -105,7 +105,7 @@ class _SignUpState extends State<SignUp> {
               Container(
                 // alignment: Alignment.center,
                 child: Text(
-                  "Welcome Back. We Are Very Much Excited About Your Next Shopping",
+                  "Welcome Back. I am Very Much Excited About Your Next Shopping",
                   style: TextStyle(),
                 ),
               ),
