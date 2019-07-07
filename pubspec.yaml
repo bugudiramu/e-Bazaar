@@ -71,13 +71,6 @@ flutter:
     - images/google.png
     - images/category1.jpg
     - images/category2.jpg
-    - images/cats/accessories.png
-    - images/cats/dress.png
-    - images/cats/formal.png
-    - images/cats/informal.png
-    - images/cats/jeans.png
-    - images/cats/shoe.png
-    - images/cats/tshirt.png
     - images/products/blazer1.jpg
     - images/products/blazer2.jpg
     - images/products/dress1.jpg
@@ -101,10 +94,8 @@ flutter:
     - images/recentImages/skt1.jpeg
     - images/sunny.png
     - images/moon.png
-    - images/hidepass.png
 
     - images/logos/github.png
-    - images/logos/gmail.png
     - images/logos/linkedin.png
     - images/logos/twitter.png
 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:shopping_cart/firebaseDB/googleSignIn.dart';
 import 'package:shopping_cart/screens/loginPage.dart';
 import 'package:shopping_cart/ui/homepage.dart';
-//import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shopping_cart/firebaseDB/userManagement.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -63,7 +62,6 @@ class _SignUpState extends State<SignUp> {
             // Add one stop for each color. Stops should increase from 0 to 1
             // stops: [0.1, 0.5, 0.6, 0.5],
             colors: [
-              // Colors are easy thanks to Flutter's Colors class.
               Colors.red[400],
               Colors.red[100],
               Colors.teal[100],
@@ -77,13 +75,14 @@ class _SignUpState extends State<SignUp> {
             children: <Widget>[
               InkWell(
                 child: Container(
-                    alignment: Alignment.topLeft,
-                    child: IconButton(
-                      icon: Icon(Icons.arrow_back),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    )),
+                  alignment: Alignment.topLeft,
+                  child: IconButton(
+                    icon: Icon(Icons.arrow_back),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ),
               ),
               SizedBox(
                 height: 20.0,
@@ -103,7 +102,6 @@ class _SignUpState extends State<SignUp> {
                 height: 10.0,
               ),
               Container(
-                // alignment: Alignment.center,
                 child: Text(
                   "Welcome Back. I am Very Much Excited About Your Next Shopping",
                   style: TextStyle(),
@@ -136,13 +134,11 @@ class _SignUpState extends State<SignUp> {
                     TextFormField(
                       controller: _nameController,
                       decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.supervised_user_circle,
-                              color: Colors.blueGrey),
-                          hintText: "Username",
-                          labelStyle: TextStyle(
-                              // color: Colors.white,
-                              ),
-                          labelText: "Username"),
+                        prefixIcon: Icon(Icons.supervised_user_circle,
+                            color: Colors.blueGrey),
+                        hintText: "Username",
+                        labelText: "Username",
+                      ),
                       validator: (val) {
                         if (val.isEmpty) {
                           return "Please Provide Username";
@@ -180,9 +176,7 @@ class _SignUpState extends State<SignUp> {
                     SizedBox(
                       height: 10.0,
                     ),
-                    // SizedBox(
-                    //   height: 20.0,
-                    // ),
+
                     TextFormField(
                       controller: _passwordController,
                       obscureText: hidePass,

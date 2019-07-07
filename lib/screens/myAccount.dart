@@ -110,7 +110,8 @@ class _MyAccountState extends State<MyAccount> {
             MaterialButton(
               minWidth: MediaQuery.of(context).size.width,
               shape: RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(25.0)),
+                borderRadius: new BorderRadius.circular(25.0),
+              ),
               child: ListTile(
                 title: Center(
                   child: Text(

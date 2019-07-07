@@ -60,11 +60,11 @@ class _CartProductDetailsState extends State<CartProductDetails> {
               // Scaffold.of(context).showSnackBar(
               //   SnackBar(
               //     content: Row(
-              //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //       mainAxisAlignment: MainAxisAlignment.spaceAround,
               //       children: <Widget>[
               //         Expanded(
-              //             child:
-              //                 Text("${_productsAddedInTheCart[i]} dismissed")),
+              //             child: Text(
+              //                 "${_productsAddedInTheCart[i]["name"]} dismissed")),
               //         Expanded(child: Text("Undo")),
               //       ],
               //     ),
@@ -91,6 +91,7 @@ class _CartProductDetailsState extends State<CartProductDetails> {
               // color: Colors.red,
             ),
             child: Card(
+              elevation: 5.0,
               child: Column(
                 children: <Widget>[
                   Padding(
@@ -117,18 +118,6 @@ class _CartProductDetailsState extends State<CartProductDetails> {
                           )
                         ],
                       ),
-                      // trailing: Row(
-                      //   mainAxisAlignment: MainAxisAlignment.end,
-                      //   children: <Widget>[
-                      //     Container(
-                      //       child: IconButton(
-                      //         onPressed: () {},
-                      //         icon: Icon(Icons.arrow_drop_down_circle),
-                      //       ),
-                      //     ),
-                      // Text("${_productsAddedInTheCart[i]['qty']}"),
-                      // ],
-                      // ),
                     ),
                   ),
                   Padding(
@@ -162,8 +151,6 @@ class _CartProductDetailsState extends State<CartProductDetails> {
     setState(() {
       _productsAddedInTheCart[index]['qty'] =
           _productsAddedInTheCart[index]['qty'] + 1;
-      // _productsAddedInTheCart[index]['price'] =
-      //     _productsAddedInTheCart[index]['price'] + 900;
     });
   }
 
@@ -171,8 +158,6 @@ class _CartProductDetailsState extends State<CartProductDetails> {
     setState(() {
       _productsAddedInTheCart[index]['qty'] =
           _productsAddedInTheCart[index]['qty'] - 1;
-      // _productsAddedInTheCart[index]['price'] =
-      //     _productsAddedInTheCart[index]['price'] - 200;
     });
   }
 }

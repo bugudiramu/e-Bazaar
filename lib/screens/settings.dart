@@ -45,10 +45,12 @@ class _SettingsState extends State<Settings> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              child:
-                  Text("If you want to reset your password click the button"),
+              child: Text(
+                "If you want to reset your password click the button",
+                style: TextStyle(fontSize: 18.0),
+              ),
             ),
-            SizedBox(height: 10.0),
+            SizedBox(height: 20.0),
             MaterialButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(25.0)),
@@ -82,9 +84,10 @@ class _SettingsState extends State<Settings> {
   void passwordResetDialog() {
     var alert = AlertDialog(
       content: Container(
-          padding: const EdgeInsets.all(10.0),
-          child: Text(
-              "Password Reset Link Has Been Sent To Your EmailID: ${email()}")),
+        padding: const EdgeInsets.all(10.0),
+        child: Text(
+            "Password Reset Link Has Been Sent To Your EmailID: ${email()}"),
+      ),
     );
     showDialog(context: context, builder: (_) => alert);
   }

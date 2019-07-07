@@ -22,10 +22,6 @@ class CategoryImages extends StatelessWidget {
             child: _showImageCategory('images/cats/formal.png', "Formal"),
             onTap: () {},
           ),
-          // InkWell(
-          //   child: _showImageCategory('images/cats/informal.png', "InFormal"),
-          //   onTap: () {},
-          // ),
           InkWell(
             child: _showImageCategory('images/cats/jeans.png', "Jeans"),
             onTap: () {},

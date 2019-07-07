@@ -80,7 +80,6 @@ class _LoginState extends State<Login> {
             // Add one stop for each color. Stops should increase from 0 to 1
             // stops: [0.1, 0.4, 1.5, 0.0],
             colors: [
-              // Colors are easy thanks to Flutter's Colors class.
               Colors.red[400],
               Colors.red[100],
               Colors.teal[100],
@@ -152,10 +151,7 @@ class _LoginState extends State<Login> {
                       controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
-                          // border: OutlineInputBorder(
-                          //   borderRadius: BorderRadius.circular(20.0),
-                          //   borderSide: BorderSide(color: Colors.black),
-                          // ),
+                         
                           prefixIcon: Icon(Icons.alternate_email,
                               color: Colors.blueGrey),
                           hintText: "Email",
@@ -196,10 +192,7 @@ class _LoginState extends State<Login> {
                               });
                             },
                           ),
-                          // border: OutlineInputBorder(
-                          //   borderRadius: BorderRadius.circular(20.0),
-                          //   borderSide: BorderSide(color: Colors.black),
-                          // ),
+                          
                           hintText: "Password",
                           labelText: "Password"),
                       validator: (val) {
