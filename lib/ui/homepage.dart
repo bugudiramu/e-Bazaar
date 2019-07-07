@@ -1,9 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:shopping_cart/screens/about.dart';
 import 'package:shopping_cart/screens/cart.dart';
+import 'package:shopping_cart/screens/contact.dart';
 import 'package:shopping_cart/screens/loginPage.dart';
 import 'package:shopping_cart/screens/myAccount.dart';
+import 'package:shopping_cart/screens/myOrders.dart';
+import 'package:shopping_cart/screens/settings.dart';
 import 'package:shopping_cart/ui/recent_products.dart';
 
 class HomePage extends StatefulWidget {
@@ -60,17 +64,18 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  // String photoUrl() {
-  //   if (currentUser != null) {
-  //     return currentUser.photoUrl;
-  //   } else {
-  //     return "No Photo";
-  //   }
-  // }
+  String photoUrl() {
+    if (currentUser != null) {
+      return currentUser.photoUrl;
+    } else {
+      return "A";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "e-Bazaar",
       debugShowCheckedModeBanner: false,
       theme: darkmode
           ? ThemeData(brightness: Brightness.dark, fontFamily: 'Montserrat')
@@ -90,10 +95,13 @@ class _HomePageState extends State<HomePage> {
                 currentAccountPicture: GestureDetector(
                   child: CircleAvatar(
                     backgroundColor: Colors.grey,
-                    child: Icon(
-                      Icons.person,
-                      color: Colors.white,
+                    child: Image.network(
+                      '${photoUrl()}',
                     ),
+                    // child: Icon(
+                    //   Icons.person,
+                    //   color: Colors.white,
+                    // ),
                   ),
                 ),
               ),
@@ -119,13 +127,7 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
               ),
-              // InkWell(
-              //   onTap: () => Navigator.of(context).pop(),
-              //   child: _showList(
-              //     "Home",
-              //     (Icons.home),
-              //   ),
-              // ),
+
               InkWell(
                 onTap: () {
                   Navigator.of(context).push(
@@ -137,35 +139,47 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => MyOrders()));
+                },
                 child: _showList(
                   "My Orders",
                   (Icons.shopping_basket),
                 ),
               ),
+              // InkWell(
+              //   onTap: () {},
+              //   child: _showList(
+              //     "Favorites",
+              //     (Icons.favorite),
+              //   ),
+              // ),
               InkWell(
-                onTap: () {},
-                child: _showList(
-                  "Favorites",
-                  (Icons.favorite),
-                ),
-              ),
-              InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => Settings()));
+                },
                 child: _showList(
                   "Settings",
                   (Icons.settings),
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => About()));
+                },
                 child: _showList(
                   "About",
                   (Icons.adjust),
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => Contact()));
+                },
                 child: _showList(
                   "Contact",
                   (Icons.contact_phone),
@@ -321,7 +335,8 @@ class ProductSearch extends SearchDelegate<String> {
   @override
   Widget buildResults(BuildContext context) {
     // show results for given keyword
-    return null;
+    return Center(
+        child: CircularProgressIndicator(backgroundColor: Colors.redAccent));
   }
 
   @override

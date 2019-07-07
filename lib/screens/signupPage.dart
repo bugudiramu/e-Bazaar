@@ -33,22 +33,22 @@ class _SignUpState extends State<SignUp> {
   @override
   void initState() {
     super.initState();
-    isSignedIn();
+    // isSignedIn();
   }
 
-  void isSignedIn() async {
-    setState(() {
-      isLoading = true;
-    });
-    preferences = await SharedPreferences.getInstance();
-    if (isLoggedIn) {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => HomePage()));
-    }
-    setState(() {
-      isLoading = false;
-    });
-  }
+  // void isSignedIn() async {
+  //   setState(() {
+  //     isLoading = true;
+  //   });
+  //   preferences = await SharedPreferences.getInstance();
+  //   if (isLoggedIn) {
+  //     Navigator.pushReplacement(
+  //         context, MaterialPageRoute(builder: (context) => HomePage()));
+  //   }
+  //   setState(() {
+  //     isLoading = false;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -126,19 +126,6 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
-                  //  ======================start: Here Register is not necessary ==========
-                  // Container(
-                  //   padding: EdgeInsets.fromLTRB(0, 0, 0, 30),
-                  //   alignment: Alignment.center,
-                  //   child: InkWell(
-                  //     onTap: () {},
-                  //     child: Text(
-                  //       "Register",
-                  //       style: _loginRegStyles(),
-                  //     ),
-                  //   ),
-                  // ),
-                  //  ======================end: Here Register is not necessary ==========
                 ],
               ),
               Form(
@@ -149,10 +136,6 @@ class _SignUpState extends State<SignUp> {
                     TextFormField(
                       controller: _nameController,
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            borderSide: BorderSide(color: Colors.black),
-                          ),
                           prefixIcon: Icon(Icons.supervised_user_circle,
                               color: Colors.blueGrey),
                           hintText: "Username",
@@ -177,10 +160,6 @@ class _SignUpState extends State<SignUp> {
                       controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            borderSide: BorderSide(color: Colors.black),
-                          ),
                           prefixIcon: Icon(Icons.alternate_email,
                               color: Colors.blueGrey),
                           hintText: "Email",
@@ -223,10 +202,6 @@ class _SignUpState extends State<SignUp> {
                             Icons.lock,
                             color: Colors.blueGrey,
                           ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            borderSide: BorderSide(color: Colors.black),
-                          ),
                           hintText: "Password",
                           labelText: "Password"),
                       validator: (val) {
@@ -260,10 +235,6 @@ class _SignUpState extends State<SignUp> {
                           prefixIcon: Icon(
                             Icons.lock,
                             color: Colors.blueGrey,
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            borderSide: BorderSide(color: Colors.black),
                           ),
                           hintText: "Confirm Password",
                           labelText: "Confirm Password"),
@@ -314,28 +285,6 @@ class _SignUpState extends State<SignUp> {
                       height: 5.0,
                     ),
 
-                    // SizedBox(
-                    //   height: 5.0,
-                    // ),
-                    // MaterialButton(
-                    //   minWidth: MediaQuery.of(context).size.width,
-                    //   child: ListTile(
-                    //     title: Center(
-                    //       child: Text(
-                    //         "Signup As Guest",
-                    //         style: _btnStyle(),
-                    //       ),
-                    //     ),
-                    //   ),
-                    //   onPressed: () {
-                    //     Navigator.of(context).push(MaterialPageRoute(
-                    //         builder: (context) => HomePage()));
-                    //   },
-                    //   color: Colors.deepOrange,
-                    // ),
-                    // SizedBox(
-                    //   height: 15.0,
-                    // ),
                     //  ================== Signin with Google Btn =======================
 
                     MaterialButton(
@@ -364,8 +313,6 @@ class _SignUpState extends State<SignUp> {
                           });
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => HomePage()));
-                        } else {
-                          return Center(child: CircularProgressIndicator());
                         }
                       },
                       color: Colors.redAccent,
@@ -376,12 +323,7 @@ class _SignUpState extends State<SignUp> {
               Visibility(
                 visible: isLoading ?? true,
                 child: Center(
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
-                    ),
-                  ),
+                  child: CircularProgressIndicator(),
                 ),
               ),
             ],
@@ -411,7 +353,8 @@ class _SignUpState extends State<SignUp> {
     FormState formState = _formKey.currentState;
     if (formState.validate()) {
       formState.reset();
-      FirebaseUser user = await firebaseAuth.currentUser();
+      // FirebaseUser user = await firebaseAuth.currentUser();
+      FirebaseUser user;
       if (user == null) {
         firebaseAuth
             .createUserWithEmailAndPassword(
@@ -420,8 +363,8 @@ class _SignUpState extends State<SignUp> {
             .then((user) {
           // user.sendEmailVerification();
           // here user.uid triggers an id inside the user which should match id of the user document
-          userManagement.createUser(user.uid, {
-            'userId': user.uid.toString(),
+          userManagement.createUser(user.uid.toString(), {
+            'userId': user.uid,
             'username': _nameController.text.toString(),
             'email': _emailController.text,
           }).CatchError((e) {

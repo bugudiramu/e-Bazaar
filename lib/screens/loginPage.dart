@@ -13,10 +13,12 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> _resetKey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   FirebaseDatabase database = FirebaseDatabase.instance;
+  FirebaseUser currentUser;
 
   bool loading = false;
   bool hidePass = true;
@@ -24,28 +26,46 @@ class _LoginState extends State<Login> {
 
   void initState() {
     super.initState();
-    isSignedIn();
+    // isSignedIn();
+    _loadCurrentUser();
   }
 
-  void isSignedIn() async {
-    setState(() {
-      loading = true;
+  void _loadCurrentUser() {
+    firebaseAuth.currentUser().then((FirebaseUser user) {
+      setState(() {
+        // call setState to rebuild the view
+        this.currentUser = user;
+      });
     });
+  }
 
-    await firebaseAuth.currentUser().then((user) {
-      if (user != null) {
-        setState(() => isLogedin = true);
-      }
-    });
-    if (isLogedin) {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => HomePage()));
+  String email() {
+    if (currentUser != null) {
+      return currentUser.email;
+    } else {
+      return "Guest User";
     }
-
-    setState(() {
-      loading = false;
-    });
   }
+
+  // void isSignedIn() async {
+  //   setState(() {
+  //     loading = true;
+  //   });
+
+  //   await firebaseAuth.currentUser().then((user) {
+  //     if (user != null) {
+  //       setState(() => isLogedin = true);
+  //     }
+  //   });
+  //   if (isLogedin) {
+  //     Navigator.pushReplacement(
+  //         context, MaterialPageRoute(builder: (context) => HomePage()));
+  //   }
+
+  //   setState(() {
+  //     loading = false;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -132,10 +152,10 @@ class _LoginState extends State<Login> {
                       controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            borderSide: BorderSide(color: Colors.black),
-                          ),
+                          // border: OutlineInputBorder(
+                          //   borderRadius: BorderRadius.circular(20.0),
+                          //   borderSide: BorderSide(color: Colors.black),
+                          // ),
                           prefixIcon: Icon(Icons.alternate_email,
                               color: Colors.blueGrey),
                           hintText: "Email",
@@ -176,10 +196,10 @@ class _LoginState extends State<Login> {
                               });
                             },
                           ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            borderSide: BorderSide(color: Colors.black),
-                          ),
+                          // border: OutlineInputBorder(
+                          //   borderRadius: BorderRadius.circular(20.0),
+                          //   borderSide: BorderSide(color: Colors.black),
+                          // ),
                           hintText: "Password",
                           labelText: "Password"),
                       validator: (val) {
@@ -219,11 +239,16 @@ class _LoginState extends State<Login> {
                       height: 5.0,
                     ),
                     Container(
-                      child: Text(
-                        "Forgot Password",
-                        style: TextStyle(
-                          decoration: TextDecoration.underline,
-                          color: Color(0xFFB33771),
+                      child: InkWell(
+                        onTap: () async {
+                          _showFormDialog();
+                        },
+                        child: Text(
+                          "Forgot Password",
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            color: Color(0xFFB33771),
+                          ),
                         ),
                       ),
                     ),
@@ -240,11 +265,8 @@ class _LoginState extends State<Login> {
               Visibility(
                 visible: loading ?? true,
                 child: Center(
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
-                    ),
+                  child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
                   ),
                 ),
               ),
@@ -283,5 +305,60 @@ class _LoginState extends State<Login> {
         print(e.message);
       }
     }
+  }
+
+  void _showFormDialog() {
+    var alert = AlertDialog(
+      content: ListTile(
+        title: Text(
+            "Password Reset Link Will Be Sent To Your EmailID: ${_emailController.text}"),
+        subtitle: Form(
+          child: TextFormField(
+            key: _resetKey,
+            autovalidate: true,
+            controller: _emailController,
+            autocorrect: true,
+            keyboardType: TextInputType.emailAddress,
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.alternate_email, color: Colors.blueGrey),
+              hintText: "Email",
+              labelText: "Email",
+            ),
+            validator: (val) {
+              if (val.isEmpty) {
+                return "Please Provide Email";
+              }
+            },
+            onSaved: (val) {
+              _emailController.text = val;
+            },
+          ),
+        ),
+      ),
+      actions: <Widget>[
+        FlatButton(
+          child: Text("Cancel"),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        FlatButton(
+          child: Row(
+            children: <Widget>[
+              Text("Send"),
+            ],
+          ),
+          onPressed: () async {
+            if (_resetKey.currentState.validate()) {
+              _resetKey.currentState.save();
+              await firebaseAuth.sendPasswordResetEmail(
+                  email: _emailController.text);
+              Navigator.of(context).pop();
+            }
+          },
+        ),
+      ],
+    );
+    showDialog(context: context, builder: (_) => alert);
   }
 }

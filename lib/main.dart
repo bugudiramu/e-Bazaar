@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_cart/ui/homepage.dart';
+import 'screens/loginPage.dart';
+
 
 void main() => runApp(
       MaterialApp(
         title: "e-Bazaar",
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: Login(),
         theme: ThemeData(
           brightness: Brightness.light,
           fontFamily: 'Montserrat',
