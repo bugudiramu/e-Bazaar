@@ -6,11 +6,9 @@ A new Flutter project.
 
 # Features in e-Bazaar
 
-## - Dynamic theming switch between Dark and Light mode
-## - Login, Logout and Signup using Firebase
-## - SignInWithGoogle
-## - Forgot password and Resetting the Password.
-## - Each section has different pages and screens
-## - Beautiful UI with Carousel and color combinations.
-
-
+##  Dynamic theming switch between Dark and Light mode
+##  Login, Logout and Signup using Firebase
+##  SignInWithGoogle
+##  Forgot password and Resetting the Password.
+##  Each section has different pages and screens
+##  Beautiful UI with Carousel and color combinations.
