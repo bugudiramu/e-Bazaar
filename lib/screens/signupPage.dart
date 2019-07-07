@@ -33,22 +33,22 @@ class _SignUpState extends State<SignUp> {
   @override
   void initState() {
     super.initState();
-    // isSignedIn();
+    isSignedIn();
   }
 
-  // void isSignedIn() async {
-  //   setState(() {
-  //     isLoading = true;
-  //   });
-  //   preferences = await SharedPreferences.getInstance();
-  //   if (isLoggedIn) {
-  //     Navigator.pushReplacement(
-  //         context, MaterialPageRoute(builder: (context) => HomePage()));
-  //   }
-  //   setState(() {
-  //     isLoading = false;
-  //   });
-  // }
+  void isSignedIn() async {
+    setState(() {
+      isLoading = true;
+    });
+    preferences = await SharedPreferences.getInstance();
+    if (isLoggedIn) {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => HomePage()));
+    }
+    setState(() {
+      isLoading = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -353,8 +353,8 @@ class _SignUpState extends State<SignUp> {
     FormState formState = _formKey.currentState;
     if (formState.validate()) {
       formState.reset();
-      // FirebaseUser user = await firebaseAuth.currentUser();
-      FirebaseUser user;
+      FirebaseUser user = await firebaseAuth.currentUser();
+      // FirebaseUser user;
       if (user == null) {
         firebaseAuth
             .createUserWithEmailAndPassword(

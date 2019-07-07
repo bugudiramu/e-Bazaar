@@ -26,8 +26,28 @@ class _LoginState extends State<Login> {
 
   void initState() {
     super.initState();
-    // isSignedIn();
+    isSignedIn();
     _loadCurrentUser();
+  }
+
+  void isSignedIn() async {
+    setState(() {
+      loading = true;
+    });
+
+    await firebaseAuth.currentUser().then((user) {
+      if (user != null) {
+        setState(() => isLogedin = true);
+      }
+    });
+    if (isLogedin) {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => HomePage()));
+    }
+
+    setState(() {
+      loading = false;
+    });
   }
 
   void _loadCurrentUser() {
@@ -46,26 +66,6 @@ class _LoginState extends State<Login> {
       return "Guest User";
     }
   }
-
-  // void isSignedIn() async {
-  //   setState(() {
-  //     loading = true;
-  //   });
-
-  //   await firebaseAuth.currentUser().then((user) {
-  //     if (user != null) {
-  //       setState(() => isLogedin = true);
-  //     }
-  //   });
-  //   if (isLogedin) {
-  //     Navigator.pushReplacement(
-  //         context, MaterialPageRoute(builder: (context) => HomePage()));
-  //   }
-
-  //   setState(() {
-  //     loading = false;
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {

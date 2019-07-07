@@ -187,7 +187,21 @@ class _ProductDetailsState extends State<ProductDetails> {
               textColor: Colors.white,
               padding: EdgeInsets.all(15.0),
               child: Text("Add to Cart"),
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        content: Text("Product added to the Cart"),
+                        actions: <Widget>[
+                          FlatButton(
+                            child: Text("OK"),
+                            onPressed: () => Navigator.of(context).pop(),
+                          ),
+                        ],
+                      );
+                    });
+              },
               color: Color(0xFFB33771),
             ),
           ),
