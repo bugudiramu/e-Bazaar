@@ -1,9 +1,16 @@
 # e-Bazaar -- Under Construction
 
 A new Flutter project.
+- Some of the designs in this project are inspired from santos Enoque
+- If you want to know about Flutter visit my blog once #30daysofflutter: https://allaboutflutter.blogspot.com/
 
-## Getting Started
+# Features in e-Bazaar
 
-This project is a starting point for a Flutter application.
+## - Dynamic theming switch between Dark and Light mode
+## - Login, Logout and Signup using Firebase
+## - SignInWithGoogle
+## - Forgot password and Resetting the Password.
+## - Each section has different pages and screens
+## - Beautiful UI with Carousel and color combinations.
 
-# e-Bazaar
+
