@@ -13,4 +13,4 @@ A new Flutter project.
 ##  Each section has different pages and screens
 ##  Beautiful UI with Carousel and nice Color combinations.
 
-<img src="images/readmePics/img1.png" width="210" height="400">
+<img src="images/readmePics/img1.png" width="210" height="400"> <img src="images/readmePics/img2.png" width="210" height="400"> <img src="images/readmePics/img3.png" width="210" height="400"> <img src="images/readmePics/img4.png" width="210" height="400"> <img src="images/readmePics/img5.png" width="210" height="400"> <img src="images/readmePics/img6.png" width="210" height="400"> <img src="images/readmePics/img7.png" width="210" height="400">
