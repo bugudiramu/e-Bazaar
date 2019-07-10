@@ -151,7 +151,6 @@ class _LoginState extends State<Login> {
                       controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
-                         
                           prefixIcon: Icon(Icons.alternate_email,
                               color: Colors.blueGrey),
                           hintText: "Email",
@@ -192,7 +191,6 @@ class _LoginState extends State<Login> {
                               });
                             },
                           ),
-                          
                           hintText: "Password",
                           labelText: "Password"),
                       validator: (val) {
@@ -224,6 +222,7 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                       onPressed: () {
+                        CircularProgressIndicator();
                         signIn();
                       },
                       color: Color(0xFFB33771),
@@ -314,7 +313,7 @@ class _LoginState extends State<Login> {
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               prefixIcon: Icon(Icons.alternate_email, color: Colors.blueGrey),
-              hintText: "Email",
+              hintText: "Enter Your Email",
               labelText: "Email",
             ),
             validator: (val) {
@@ -344,6 +343,7 @@ class _LoginState extends State<Login> {
           onPressed: () async {
             if (_resetKey.currentState.validate()) {
               _resetKey.currentState.save();
+              _resetKey.currentState.reset();
               await firebaseAuth.sendPasswordResetEmail(
                   email: _emailController.text);
               Navigator.of(context).pop();
