@@ -253,7 +253,8 @@ class _SignUpState extends State<SignUp> {
                     //  ================== Login Btn =======================
                     MaterialButton(
                       shape: RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(25.0)),
+                        borderRadius: new BorderRadius.circular(25.0),
+                      ),
                       minWidth: MediaQuery.of(context).size.width,
                       child: ListTile(
                         title: Center(
@@ -296,6 +297,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                       onPressed: () async {
+                        _showLoadingIndicator();
                         FirebaseUser user = await auth.googleSignIn();
                         if (user != null) {
                           // user.sendEmailVerification();
@@ -344,9 +346,11 @@ class _SignUpState extends State<SignUp> {
   }
 
   Future signUpUser() async {
+    print("signUp");
     FormState formState = _formKey.currentState;
     if (formState.validate()) {
       formState.reset();
+      _showLoadingIndicator();
       FirebaseUser user = await firebaseAuth.currentUser();
       // FirebaseUser user;
       if (user == null) {
@@ -369,5 +373,25 @@ class _SignUpState extends State<SignUp> {
             .push(MaterialPageRoute(builder: (context) => HomePage()));
       }
     }
+  }
+
+  _showLoadingIndicator() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+          content: Row(
+            children: <Widget>[
+              CircularProgressIndicator(),
+              SizedBox(
+                width: 20.0,
+              ),
+              Text("Loading!")
+            ],
+          ),
+        );
+      },
+    );
   }
 }

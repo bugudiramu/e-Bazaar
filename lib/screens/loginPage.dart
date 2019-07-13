@@ -221,8 +221,9 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
-                      onPressed: () {
-                        CircularProgressIndicator();
+                      onPressed: () async {
+                        print("login btn clicked!");
+
                         signIn();
                       },
                       color: Color(0xFFB33771),
@@ -288,6 +289,8 @@ class _LoginState extends State<Login> {
   Future signIn() async {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
+      _showLoadingIndicator();
+
       try {
         await firebaseAuth.signInWithEmailAndPassword(
             email: _emailController.text, password: _passwordController.text);
@@ -320,6 +323,7 @@ class _LoginState extends State<Login> {
               if (val.isEmpty) {
                 return "Please Provide Email";
               }
+              return "";
             },
             onSaved: (val) {
               _emailController.text = val;
@@ -335,23 +339,40 @@ class _LoginState extends State<Login> {
           },
         ),
         FlatButton(
-          child: Row(
-            children: <Widget>[
-              Text("Send"),
-            ],
-          ),
+          child: Text("Send"),
           onPressed: () async {
-            if (_resetKey.currentState.validate()) {
-              _resetKey.currentState.save();
-              _resetKey.currentState.reset();
-              await firebaseAuth.sendPasswordResetEmail(
-                  email: _emailController.text);
-              Navigator.of(context).pop();
-            }
+            // if (_resetKey.currentState.validate()) {
+            //   _resetKey.currentState.save();
+            //   _resetKey.currentState.reset();
+            //   await firebaseAuth.sendPasswordResetEmail(
+            //       email: _emailController.text);
+            //   Navigator.of(context).pop();
+            // }
+            Navigator.of(context).pop();
           },
         ),
       ],
     );
     showDialog(context: context, builder: (_) => alert);
+  }
+
+  _showLoadingIndicator() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+          content: Row(
+            children: <Widget>[
+              CircularProgressIndicator(),
+              SizedBox(
+                width: 20.0,
+              ),
+              Text("Loading!")
+            ],
+          ),
+        );
+      },
+    );
   }
 }

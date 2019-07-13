@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
 
   String photoUrl() {
     if (currentUser != null) {
-      return currentUser.photoUrl;
+      return currentUser.email[0].toUpperCase();
     } else {
       return "A";
     }
@@ -93,11 +93,13 @@ class _HomePageState extends State<HomePage> {
                 accountEmail: Text("${email()}"),
                 currentAccountPicture: GestureDetector(
                   child: CircleAvatar(
-                    backgroundColor: Colors.transparent,
-                    child: Image.network(
-                      '${photoUrl()}',
-                      scale: 1.0,
-                    ),
+                    backgroundColor: Colors.blueAccent,
+                    child: Text("${photoUrl()}",
+                        style: TextStyle(
+                          fontSize: 35.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        )),
                   ),
                 ),
               ),
