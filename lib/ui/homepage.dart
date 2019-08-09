@@ -275,16 +275,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // Widget _categories() {
-  //   return Container(
-  //     padding: EdgeInsets.all(10.0),
-  //     alignment: Alignment.centerLeft,
-  //     child: Text(
-  //       "Categories",
-  //       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-  //     ),
-  //   );
-  // }
 }
 
 // SearchBar

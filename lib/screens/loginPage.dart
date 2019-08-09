@@ -11,7 +11,7 @@ class Login extends StatefulWidget {
   _LoginState createState() => _LoginState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   GlobalKey<FormState> _resetKey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();
@@ -19,6 +19,8 @@ class _LoginState extends State<Login> {
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   FirebaseDatabase database = FirebaseDatabase.instance;
   FirebaseUser currentUser;
+  Animation animation, delayAnimation, muchDelayedAnimation;
+  AnimationController animationController;
 
   bool loading = false;
   bool hidePass = true;
@@ -26,6 +28,25 @@ class _LoginState extends State<Login> {
 
   void initState() {
     super.initState();
+    animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 2000),
+    );
+    animation = Tween(begin: -1.0, end: 0.0).animate(
+      CurvedAnimation(curve: Curves.fastOutSlowIn, parent: animationController),
+    );
+    delayAnimation = Tween(begin: -1.0, end: 0.0).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
+      ),
+    );
+    muchDelayedAnimation = Tween(begin: -1.0, end: 0.0).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Interval(0.7, 1.0, curve: Curves.fastOutSlowIn),
+      ),
+    );
     isSignedIn();
     _loadCurrentUser();
   }
@@ -68,207 +89,245 @@ class _LoginState extends State<Login> {
   }
 
   @override
+  void dispose() {
+    animationController.dispose();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          // Box decoration takes a gradient
-          gradient: LinearGradient(
-            // Where the linear gradient begins and ends
-            begin: Alignment.bottomRight,
-            end: Alignment.topLeft,
-            // Add one stop for each color. Stops should increase from 0 to 1
-            // stops: [0.1, 0.4, 1.5, 0.0],
-            colors: [
-              Colors.red[400],
-              Colors.red[100],
-              Colors.teal[100],
-              Colors.teal[400],
-            ],
-          ),
-        ),
-        padding: const EdgeInsets.all(15.0),
-        child: Center(
-          child: ListView(
-            children: <Widget>[
-              SizedBox(
-                height: 20.0,
+    final width = MediaQuery.of(context).size.width;
+    animationController.forward();
+    return AnimatedBuilder(
+      animation: animationController,
+      builder: (BuildContext context, Widget child) {
+        return Scaffold(
+          body: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft,
+                stops: [0.5, 0.8],
+                colors: [
+                  Colors.cyanAccent,
+                  Colors.tealAccent,
+                ],
               ),
-              Container(
-                padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                alignment: Alignment.center,
-                child: Text(
-                  "e-Bazaar",
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              Container(
-                // alignment: Alignment.center,
-                child: Text(
-                  "Welcome Back. I am Very Much Excited About Your Next Shopping",
-                  style: TextStyle(),
-                ),
-              ),
-              SizedBox(height: 20.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+            ),
+            padding: const EdgeInsets.all(15.0),
+            child: Center(
+              child: ListView(
                 children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
-                    child: Text(
-                      "Login",
-                      style: _loginRegStyles(),
-                    ),
+                  SizedBox(
+                    height: 20.0,
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => SignUp()));
-                    },
+                  Transform(
+                    transform: Matrix4.translationValues(
+                        animation.value * width, 0.0, 0.0),
                     child: Container(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 30),
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
                       alignment: Alignment.center,
                       child: Text(
-                        "Register",
-                        style: _loginRegStyles(),
+                        "e-Bazaar",
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Transform(
+                    transform: Matrix4.translationValues(
+                        animation.value * width, 0.0, 0.0),
+                    child: Container(
+                      // alignment: Alignment.center,
+                      child: Text(
+                        "Welcome Back. I am Very Much Excited About Your Next Shopping",
+                        style: TextStyle(),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      Transform(
+                        transform: Matrix4.translationValues(
+                            animation.value * width, 0.0, 0.0),
+                        child: Container(
+                          padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
+                          child: Text(
+                            "Login",
+                            style: _loginRegStyles(),
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => SignUp()));
+                        },
+                        child: Transform(
+                          transform: Matrix4.translationValues(
+                              animation.value * width, 0.0, 0.0),
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(0, 0, 0, 30),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Register",
+                              style: _loginRegStyles(),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Transform(
+                    transform: Matrix4.translationValues(
+                        delayAnimation.value * width, 0.0, 0.0),
+                    child: Form(
+                      key: _formKey,
+                      autovalidate: true,
+                      child: Column(
+                        children: <Widget>[
+                          TextFormField(
+                            controller: _emailController,
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.alternate_email,
+                                    color: Colors.blueGrey),
+                                hintText: "Email",
+                                labelStyle: TextStyle(
+                                    // color: Colors.white,
+                                    ),
+                                labelText: "Email"),
+                            validator: (val) {
+                              if (val.isEmpty) {
+                                return "Please Provide Email";
+                              }
+                              // return "";
+                            },
+                            onSaved: (val) {
+                              _emailController.text = val;
+                            },
+                            autocorrect: true,
+                          ),
+                          SizedBox(
+                            height: 10.0,
+                          ),
+                          TextFormField(
+                            controller: _passwordController,
+                            // obscureText:hidepass we toggle when user clicks the icon
+                            obscureText: hidePass,
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.lock,
+                                  color: Colors.blueGrey,
+                                ),
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    Icons.remove_red_eye,
+                                    color: Colors.blueGrey,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      hidePass = false;
+                                    });
+                                  },
+                                ),
+                                hintText: "Password",
+                                labelText: "Password"),
+                            validator: (val) {
+                              if (val.length < 6) {
+                                return "Passsword must contain atleast 6 characters";
+                              } else if (val.isEmpty) {
+                                return "Password field can't be empty";
+                              }
+                              // return "";
+                            },
+                            onSaved: (val) {
+                              _passwordController.text = val;
+                            },
+                            autocorrect: true,
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          //  ================== Login Btn =======================
+                          Transform(
+                            transform: Matrix4.translationValues(
+                                muchDelayedAnimation.value * width, 0.0, 0.0),
+                            child: MaterialButton(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      new BorderRadius.circular(25.0)),
+                              minWidth: MediaQuery.of(context).size.width,
+                              child: ListTile(
+                                title: Center(
+                                  child: Text(
+                                    "Login",
+                                    style: _btnStyle(),
+                                  ),
+                                ),
+                              ),
+                              onPressed: () async {
+                                print("login btn clicked!");
+
+                                signIn();
+                              },
+                              color: Color(0xFFB33771),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 5.0,
+                          ),
+                          Transform(
+                            transform: Matrix4.translationValues(
+                                muchDelayedAnimation.value * width, 0.0, 0.0),
+                            child: Container(
+                              child: InkWell(
+                                onTap: () async {
+                                  _showFormDialog();
+                                },
+                                child: Text(
+                                  "Forgot Password",
+                                  style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    color: Color(0xFFB33771),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 5.0,
+                          ),
+
+                          SizedBox(
+                            height: 15.0,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Visibility(
+                    visible: loading ?? true,
+                    child: Center(
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
                       ),
                     ),
                   ),
                 ],
               ),
-              Form(
-                key: _formKey,
-                autovalidate: true,
-                child: Column(
-                  children: <Widget>[
-                    TextFormField(
-                      controller: _emailController,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.alternate_email,
-                              color: Colors.blueGrey),
-                          hintText: "Email",
-                          labelStyle: TextStyle(
-                              // color: Colors.white,
-                              ),
-                          labelText: "Email"),
-                      validator: (val) {
-                        if (val.isEmpty) {
-                          return "Please Provide Email";
-                        }
-                        // return "";
-                      },
-                      onSaved: (val) {
-                        _emailController.text = val;
-                      },
-                      autocorrect: true,
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    TextFormField(
-                      controller: _passwordController,
-                      // obscureText:hidepass we toggle when user clicks the icon
-                      obscureText: hidePass,
-                      decoration: InputDecoration(
-                          prefixIcon: Icon(
-                            Icons.lock,
-                            color: Colors.blueGrey,
-                          ),
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                              Icons.remove_red_eye,
-                              color: Colors.blueGrey,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                hidePass = false;
-                              });
-                            },
-                          ),
-                          hintText: "Password",
-                          labelText: "Password"),
-                      validator: (val) {
-                        if (val.length < 6) {
-                          return "Passsword must contain atleast 6 characters";
-                        } else if (val.isEmpty) {
-                          return "Password field can't be empty";
-                        }
-                        // return "";
-                      },
-                      onSaved: (val) {
-                        _passwordController.text = val;
-                      },
-                      autocorrect: true,
-                    ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    //  ================== Login Btn =======================
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(25.0)),
-                      minWidth: MediaQuery.of(context).size.width,
-                      child: ListTile(
-                        title: Center(
-                          child: Text(
-                            "Login",
-                            style: _btnStyle(),
-                          ),
-                        ),
-                      ),
-                      onPressed: () async {
-                        print("login btn clicked!");
-
-                        signIn();
-                      },
-                      color: Color(0xFFB33771),
-                    ),
-                    SizedBox(
-                      height: 5.0,
-                    ),
-                    Container(
-                      child: InkWell(
-                        onTap: () async {
-                          _showFormDialog();
-                        },
-                        child: Text(
-                          "Forgot Password",
-                          style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            color: Color(0xFFB33771),
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5.0,
-                    ),
-
-                    SizedBox(
-                      height: 15.0,
-                    ),
-                  ],
-                ),
-              ),
-              Visibility(
-                visible: loading ?? true,
-                child: Center(
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 

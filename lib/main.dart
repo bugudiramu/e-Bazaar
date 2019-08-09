@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart/blocs/themeChanger.dart';
-import 'package:shopping_cart/ui/homepage.dart';
+import 'package:shopping_cart/screens/loginPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,15 +20,10 @@ class MaterialAppWithTheme extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeChanger>(context);
     return MaterialApp(
-    
       title: "e-Bazaar",
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: Login(),
       theme: theme.getTheme(),
-    
-      // If darkTheme is enabled in your phone then the app automatically appears in DarkMode
-      // darkTheme:
-      // ThemeData(brightness: Brightness.dark, fontFamily: 'Montserrat'),
     );
   }
 }
