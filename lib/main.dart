@@ -1,20 +1,37 @@
 import 'package:flutter/material.dart';
-import 'screens/loginPage.dart';
+import 'package:provider/provider.dart';
+import 'package:shopping_cart/blocs/themeChanger.dart';
+import 'package:shopping_cart/ui/homepage.dart';
 
-void main() => runApp(
-      MaterialApp(
-        title: "e-Bazaar",
-        debugShowCheckedModeBanner: false,
-        home: Login(),
-        theme: ThemeData(
-          brightness: Brightness.light,
-          fontFamily: 'Montserrat',
-        ),
-        // If darkTheme is enabled in your phone then the app automatically appears in DarkMode
-        darkTheme:
-            ThemeData(brightness: Brightness.dark, fontFamily: 'Montserrat'),
-      ),
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider<ThemeChanger>(
+      builder: (_) => ThemeChanger(ThemeData.light()),
+      child: new MaterialAppWithTheme(),
     );
+  }
+}
+
+class MaterialAppWithTheme extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final theme = Provider.of<ThemeChanger>(context);
+    return MaterialApp(
+    
+      title: "e-Bazaar",
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+      theme: theme.getTheme(),
+    
+      // If darkTheme is enabled in your phone then the app automatically appears in DarkMode
+      // darkTheme:
+      // ThemeData(brightness: Brightness.dark, fontFamily: 'Montserrat'),
+    );
+  }
+}
 
 // Mostly Used Components
 //  color: Color(0xFFB33771)

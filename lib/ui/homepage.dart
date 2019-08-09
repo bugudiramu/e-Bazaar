@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:provider/provider.dart';
+import 'package:shopping_cart/blocs/themeChanger.dart';
 import 'package:shopping_cart/screens/about.dart';
 import 'package:shopping_cart/screens/cart.dart';
 import 'package:shopping_cart/screens/contact.dart';
@@ -74,167 +76,168 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "e-Bazaar",
-      debugShowCheckedModeBanner: false,
-      theme: darkmode
-          ? ThemeData(brightness: Brightness.dark, fontFamily: 'Montserrat')
-          : ThemeData(brightness: Brightness.light, fontFamily: 'Montserrat'),
-      home: Scaffold(
-        // Drawer Start
-        drawer: Drawer(
-          child: ListView(
-            children: <Widget>[
-              UserAccountsDrawerHeader(
-                decoration: BoxDecoration(
-                  color: Color(0xFFB33771),
-                ),
-                accountName: Text("${userName()}"),
-                accountEmail: Text("${email()}"),
-                currentAccountPicture: GestureDetector(
-                  child: CircleAvatar(
-                    backgroundColor: Colors.blueAccent,
-                    child: Text("${photoUrl()}",
-                        style: TextStyle(
-                          fontSize: 35.0,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        )),
-                  ),
-                ),
-              ),
-              ListTile(
-                leading: darkmode
-                    ? Image.asset(
-                        'images/moon.png',
-                        height: 30.0,
-                        width: 26.0,
-                      )
-                    : Image.asset(
-                        'images/sunny.png',
-                        height: 30.0,
-                        width: 26.0,
-                      ),
-                title: Text("DarkMode"),
-                trailing: Switch(
-                  value: darkmode,
-                  onChanged: (val) {
-                    setState(() {
-                      darkmode = val;
-                    });
-                  },
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => MyAccount()));
-                },
-                child: _showList(
-                  "My Account",
-                  (Icons.account_box),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => MyOrders()));
-                },
-                child: _showList(
-                  "My Orders",
-                  (Icons.shopping_basket),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => Settings()));
-                },
-                child: _showList(
-                  "Settings",
-                  (Icons.settings),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => About()));
-                },
-                child: _showList(
-                  "About",
-                  (Icons.adjust),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => Contact()));
-                },
-                child: _showList(
-                  "Contact",
-                  (Icons.contact_phone),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  FirebaseAuth.instance.signOut().then((value) {
-                    Navigator.of(context).pop();
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => Login()));
-                  });
-                },
-                child: _showList(
-                  "LogOut",
-                  (Icons.exit_to_app),
-                ),
-              ),
-            ],
-          ),
-        ),
-        // Drawer ends
-        appBar: AppBar(
-          titleSpacing: 2.0,
-          elevation: 0,
-          backgroundColor: Color(0xFFB33771),
-          title: Text("e-Bazaar"),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {
-                showSearch(context: context, delegate: ProductSearch());
-              },
-            ),
-            IconButton(
-              icon: Icon(Icons.shopping_cart),
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Cart()));
-              },
-            ),
-          ],
-        ),
-        body: Column(
+    // Which is used to listen to the nearest change and provides the current state and rebuilds the widget.
+    ThemeChanger theme = Provider.of<ThemeChanger>(context);
+
+    return Scaffold(
+      // Drawer Start
+      drawer: Drawer(
+        child: ListView(
           children: <Widget>[
-            _imgCarousel(),
-            // _categories(),
-            // CategoryImages(),
-            Container(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Recent Products",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+            UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                color: Color(0xFFB33771),
               ),
-              padding: EdgeInsets.all(10.0),
+              accountName: Text("${userName()}"),
+              accountEmail: Text("${email()}"),
+              currentAccountPicture: GestureDetector(
+                child: CircleAvatar(
+                  backgroundColor: Colors.blueAccent,
+                  child: Text("${photoUrl()}",
+                      style: TextStyle(
+                        fontSize: 35.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      )),
+                ),
+              ),
             ),
-            //grid view
-            Flexible(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 20.0),
-                child: RecentProducts(),
+            ListTile(
+              leading: darkmode
+                  ? Image.asset(
+                      'images/moon.png',
+                      height: 30.0,
+                      width: 26.0,
+                    )
+                  : Image.asset(
+                      'images/sunny.png',
+                      height: 30.0,
+                      width: 26.0,
+                    ),
+              title: Text("DarkMode"),
+              trailing: Switch(
+                value: darkmode,
+                onChanged: (val) {
+                  setState(() {
+                    darkmode = val;
+                  });
+                  if (darkmode) {
+                    theme.setTheme(ThemeData.dark());
+                  } else {
+                    theme.setTheme(ThemeData.light());
+                  }
+                },
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => MyAccount()));
+              },
+              child: _showList(
+                "My Account",
+                (Icons.account_box),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => MyOrders()));
+              },
+              child: _showList(
+                "My Orders",
+                (Icons.shopping_basket),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Settings()));
+              },
+              child: _showList(
+                "Settings",
+                (Icons.settings),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => About()));
+              },
+              child: _showList(
+                "About",
+                (Icons.adjust),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Contact()));
+              },
+              child: _showList(
+                "Contact",
+                (Icons.contact_phone),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                FirebaseAuth.instance.signOut().then((value) {
+                  Navigator.of(context).pop();
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => Login()));
+                });
+              },
+              child: _showList(
+                "LogOut",
+                (Icons.exit_to_app),
               ),
             ),
           ],
         ),
+      ),
+      // Drawer ends
+      appBar: AppBar(
+        titleSpacing: 2.0,
+        elevation: 0,
+        backgroundColor: Color(0xFFB33771),
+        title: Text("e-Bazaar"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              showSearch(context: context, delegate: ProductSearch());
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.shopping_cart),
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => Cart()));
+            },
+          ),
+        ],
+      ),
+      body: Column(
+        children: <Widget>[
+          _imgCarousel(),
+          // _categories(),
+          // CategoryImages(),
+          Container(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "Recent Products",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+            ),
+            padding: EdgeInsets.all(10.0),
+          ),
+          //grid view
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 20.0),
+              child: RecentProducts(),
+            ),
+          ),
+        ],
       ),
     );
   }

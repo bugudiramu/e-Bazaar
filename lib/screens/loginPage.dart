@@ -162,6 +162,7 @@ class _LoginState extends State<Login> {
                         if (val.isEmpty) {
                           return "Please Provide Email";
                         }
+                        // return "";
                       },
                       onSaved: (val) {
                         _emailController.text = val;
@@ -199,6 +200,7 @@ class _LoginState extends State<Login> {
                         } else if (val.isEmpty) {
                           return "Password field can't be empty";
                         }
+                        // return "";
                       },
                       onSaved: (val) {
                         _passwordController.text = val;

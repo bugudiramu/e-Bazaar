@@ -143,6 +143,7 @@ class _SignUpState extends State<SignUp> {
                         if (val.isEmpty) {
                           return "Please Provide Username";
                         }
+                        // return "";
                       },
                       onSaved: (val) {
                         _emailController.text = val;
@@ -167,6 +168,7 @@ class _SignUpState extends State<SignUp> {
                         if (val.isEmpty) {
                           return "Please Provide Email";
                         }
+                        // return "";
                       },
                       onSaved: (val) {
                         _emailController.text = val;
@@ -202,6 +204,7 @@ class _SignUpState extends State<SignUp> {
                         if (val.length < 6) {
                           return "Passsword must contain atleast 6 characters";
                         }
+                        // return "";
                       },
                       onSaved: (val) {
                         _passwordController.text = val;
@@ -240,6 +243,7 @@ class _SignUpState extends State<SignUp> {
                         } else if (_passwordController.text != val) {
                           return "Password and Confirm Password didn't match";
                         }
+                        // return "";
                       },
                       onSaved: (val) {
                         _passwordController.text = val;
