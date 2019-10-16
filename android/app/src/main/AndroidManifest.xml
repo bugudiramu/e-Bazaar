@@ -6,6 +6,8 @@
          additional functionality it is fine to subclass or reimplement
          FlutterApplication and put your custom class here. -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true"/>
+
 
     <application android:name="io.flutter.app.FlutterApplication" android:label="eBazaar" android:icon="@mipmap/launcher_icon">
         <activity android:name=".MainActivity" android:launchMode="singleTop" android:theme="@style/LaunchTheme" android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode" android:hardwareAccelerated="true" android:windowSoftInputMode="adjustResize">
@@ -19,5 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+         <activity android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"
+        android:launchMode="singleTask">
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="${applicationId}.braintree" />
+        </intent-filter>
+    </activity>
     </application>
 </manifest>

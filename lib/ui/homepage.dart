@@ -4,7 +4,6 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart/blocs/themeChanger.dart';
 import 'package:shopping_cart/screens/about.dart';
-import 'package:shopping_cart/screens/cart.dart';
 import 'package:shopping_cart/screens/contact.dart';
 import 'package:shopping_cart/screens/loginPage.dart';
 import 'package:shopping_cart/screens/myAccount.dart';
@@ -208,13 +207,17 @@ class _HomePageState extends State<HomePage> {
               showSearch(context: context, delegate: ProductSearch());
             },
           ),
-          IconButton(
+          /* IconButton(
             icon: Icon(Icons.shopping_cart),
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Cart()));
+            onPressed: () async {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => CartProductDetails(
+                        cartProductName: widget.searchProdName,
+                        cartProductImage: widget.searchProdImage,
+                        cartProductPrice: widget.searchProdPrice,
+                      )));
             },
-          ),
+          ),*/
         ],
       ),
       body: Column(
@@ -274,7 +277,6 @@ class _HomePageState extends State<HomePage> {
       title: Text(s),
     );
   }
-
 }
 
 // SearchBar

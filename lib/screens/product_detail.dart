@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_cart/ui/cart_product_details.dart';
 import 'package:shopping_cart/ui/similar_products.dart';
-
-import 'cart.dart';
 
 class ProductDetails extends StatefulWidget {
   final productDetailsName;
@@ -9,13 +8,15 @@ class ProductDetails extends StatefulWidget {
   final productDetailsoldPrice;
   final productDetailsPrice;
   final productDetailsDesc;
+  final productDetailsQty;
 
   ProductDetails(
       {this.productDetailsName,
       this.productDetailsImage,
       this.productDetailsoldPrice,
       this.productDetailsPrice,
-      this.productDetailsDesc});
+      this.productDetailsDesc,
+      this.productDetailsQty});
 
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
@@ -32,9 +33,13 @@ class _ProductDetailsState extends State<ProductDetails> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.shopping_cart),
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Cart()));
+            onPressed: () async {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => CartProductDetails(
+                        cartProductName: widget.productDetailsName,
+                        cartProductImage: widget.productDetailsImage,
+                        cartProductPrice: widget.productDetailsPrice,
+                      )));
             },
           ),
         ],
@@ -171,16 +176,16 @@ class _ProductDetailsState extends State<ProductDetails> {
           ),
           //  ---------------------- Buy Now and Add to Cart Buttons ------------
 
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
-            child: MaterialButton(
-              textColor: Colors.white,
-              padding: EdgeInsets.all(15.0),
-              child: Text("Buy Now"),
-              onPressed: () {},
-              color: Color(0xFFB33771),
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
+          //   child: MaterialButton(
+          //     textColor: Colors.white,
+          //     padding: EdgeInsets.all(15.0),
+          //     child: Text("Buy Now"),
+          //     onPressed: () {},
+          //     color: Color(0xFFB33771),
+          //   ),
+          // ),
           Padding(
             padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 12.0),
             child: MaterialButton(
@@ -188,7 +193,14 @@ class _ProductDetailsState extends State<ProductDetails> {
               padding: EdgeInsets.all(15.0),
               child: Text("Add to Cart"),
               onPressed: () {
-                showDialog(
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => CartProductDetails(
+                    cartProductName: widget.productDetailsName,
+                    cartProductImage: widget.productDetailsImage,
+                    cartProductPrice: widget.productDetailsPrice,
+                  ),
+                ));
+                /* showDialog(
                     context: context,
                     builder: (context) {
                       return AlertDialog(
@@ -200,7 +212,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           ),
                         ],
                       );
-                    });
+                    });*/
               },
               color: Color(0xFFB33771),
             ),

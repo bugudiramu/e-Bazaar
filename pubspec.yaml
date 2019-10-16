@@ -19,6 +19,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  razorpay_plugin: ^0.2.9
+  fluttertoast: ^3.1.3
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -27,13 +29,14 @@ dependencies:
   firebase_core: ^0.4.0+6
   firebase_auth: ^0.11.1+6
   google_sign_in: ^4.0.2
-  cloud_firestore: ^0.12.5
+  cloud_firestore: any
   shared_preferences: ^0.4.3
   firebase_storage:
   firebase_database:
   loader_search_bar: ^1.0.3+3
   url_launcher: ^5.0.3
   provider:
+  # stripe_payment: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -60,42 +63,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/c1.jpg
-    - images/c2.jpg
-    - images/c3.jpg
-    - images/c4.jpg
-    - images/c5.jpg
-    - images/c6.jpg
-    - images/c7.jpg
-
-    - images/facebook.png
-    - images/google.png
-    - images/category1.jpg
-    - images/category2.jpg
-    - images/products/blazer1.jpg
-    - images/products/blazer2.jpg
-    - images/products/dress1.jpg
-    - images/products/dress2.jpg
-    - images/products/hills1.jpg
-    - images/products/hills2.jpg
-    - images/products/jeans1.jpg
-    - images/products/jeans2.jpg
-    - images/products/shoe1.jpg
-    - images/products/shoe2.jpg
-    - images/products/skirt1.jpg
-    - images/products/skirt2.jpg
-    - images/products/tshirt1.jpg
-    - images/products/tshirt2.jpg
-    - images/recentImages/blazer1.jpeg
-    - images/recentImages/dress1.jpeg
-    - images/recentImages/hills1.jpeg
-    - images/recentImages/skt1.jpeg
-    - images/sunny.png
-    - images/moon.png
-
-    - images/logos/github.png
-    - images/logos/linkedin.png
-    - images/logos/twitter.png
+    - images/
+    - images/products/
+    - images/logos/
+    - images/recentImages/
 
   #  - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -111,12 +82,10 @@ flutter:
     - family: Montserrat
       fonts:
         - asset: fonts/montserrat/Montserrat-Medium.ttf
-        # - asset: fonts/Montserrat-Regular.ttf
         # style: italic
     - family: Roboto
       fonts:
         - asset: fonts/roboto/Roboto-Medium.ttf
-          # - asset: fonts/TrajanPro_Bold.ttf
           weight: 700
   #
   # For details regarding fonts from package dependencies,

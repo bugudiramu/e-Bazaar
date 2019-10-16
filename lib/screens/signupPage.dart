@@ -79,7 +79,6 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
       animation: animationController,
       builder: (BuildContext context, Widget child) {
         return Scaffold(
-          
           body: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -120,7 +119,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                         alignment: Alignment.center,
                         padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
                         child: Text(
-                          "SignUp",
+                          "SignUp".toUpperCase(),
                           style: _loginRegStyles(),
                         ),
                       ),
@@ -143,6 +142,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                               hintText: "Username",
                               labelText: "Username",
                             ),
+                            // ignore: missing_return
                             validator: (val) {
                               if (val.isEmpty) {
                                 return "Please Provide Username";
@@ -168,6 +168,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                     // color: Colors.white,
                                     ),
                                 labelText: "Email"),
+                            // ignore: missing_return
                             validator: (val) {
                               if (val.isEmpty) {
                                 return "Please Provide Email";
@@ -204,6 +205,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                 ),
                                 hintText: "Password",
                                 labelText: "Password"),
+                            // ignore: missing_return
                             validator: (val) {
                               if (val.length < 6) {
                                 return "Passsword must contain atleast 6 characters";
@@ -239,6 +241,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                 ),
                                 hintText: "Confirm Password",
                                 labelText: "Confirm Password"),
+                            // ignore: missing_return
                             validator: (val) {
                               if (val.length < 6) {
                                 return "Passsword must contain atleast 6 characters";
@@ -270,13 +273,28 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                               child: ListTile(
                                 title: Center(
                                   child: Text(
-                                    "Signup For Free",
+                                    "Signup For Free".toUpperCase(),
                                     style: _btnStyle(),
                                   ),
                                 ),
                               ),
                               onPressed: () async {
                                 signUpUser();
+
+                                // Used for showing the dialog (Use pageview widget recommended)
+                                // showDialog(
+                                //   context: context,
+                                //   builder: (_) => AlertDialog(
+                                //     content: Text(
+                                //         "Account created succssfully please login to continue!"),
+                                //     actions: <Widget>[
+                                //       FlatButton(
+                                //         onPressed: () => Navigator.pop(context),
+                                //         child: Text("OK"),
+                                //       )
+                                //     ],
+                                //   ),
+                                // );
                               },
                               color: Color(0xFFB33771),
                             ),
@@ -308,7 +326,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                   height: 30.0,
                                 ),
                                 title: Text(
-                                  "SignIn With Google",
+                                  "Signup With Google".toUpperCase(),
                                   style: _btnStyle(),
                                 ),
                               ),
@@ -323,9 +341,17 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                     "photoUrl": user.photoUrl,
                                     "email": user.email,
                                   });
-                                  Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                          builder: (context) => HomePage()));
+                                  // Navigator.of(context).pushReplacement(
+                                  //     MaterialPageRoute(
+                                  //         builder: (context) => HomePage()));
+                                  // pushAndRemoveUtil makes users to not see the login screen when they press the back button
+
+                                  Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => HomePage()),
+                                    (Route<dynamic> route) => false,
+                                  );
                                 }
                               },
                               color: Colors.redAccent,
@@ -390,8 +416,15 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
             print(e.toString());
           });
         });
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => HomePage()));
+        // Navigator.of(context)
+        //     .push(MaterialPageRoute(builder: (context) => Login()));
+        // pushAndRemoveUtil makes users to not see the login screen when they press the back button
+
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => Login()),
+          (Route<dynamic> route) => false,
+        );
       }
     }
   }

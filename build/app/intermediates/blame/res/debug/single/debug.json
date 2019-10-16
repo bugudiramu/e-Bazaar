@@ -1,0 +1,462 @@
+[
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-xxhdpi-v4\\googleg_standard_color_18.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\color_common_google_signin_btn_text_dark.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\color\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_notification_icon_background.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable\\notification_icon_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-xxhdpi-v4\\googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_dark_normal.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable\\common_google_signin_btn_icon_dark_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_disabled.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable\\common_google_signin_btn_text_disabled.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_light_focused.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable\\common_google_signin_btn_text_light_focused.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_dark_focused.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable\\common_google_signin_btn_icon_dark_focused.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_notification_tile_bg.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-xhdpi-v4\\googleg_standard_color_18.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_rzp_logo.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\checkout-1.5.2.aar\\76541536796dc2282c7c0f58e657e904\\res\\drawable-xxxhdpi-v4\\rzp_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_rzp_loader.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\checkout-1.5.2.aar\\76541536796dc2282c7c0f58e657e904\\res\\layout\\rzp_loader.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark_focused.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable\\common_google_signin_btn_text_dark_focused.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_rzp_logo.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\checkout-1.5.2.aar\\76541536796dc2282c7c0f58e657e904\\res\\drawable-xxhdpi-v4\\rzp_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-hdpi-v4\\googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_rzp_logo.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\checkout-1.5.2.aar\\76541536796dc2282c7c0f58e657e904\\res\\drawable-mdpi-v4\\rzp_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-mdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_custom_big.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_icon_group.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_rzp_secured_by_bg.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\checkout-1.5.2.aar\\76541536796dc2282c7c0f58e657e904\\res\\drawable\\rzp_secured_by_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\raw_rzp_config.json.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\checkout-1.5.2.aar\\76541536796dc2282c7c0f58e657e904\\res\\raw\\rzp_config.json"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_full_open_on_phone.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-xhdpi-v4\\common_full_open_on_phone.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_rzp_name_logo.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\checkout-1.5.2.aar\\76541536796dc2282c7c0f58e657e904\\res\\drawable-xxhdpi-v4\\rzp_name_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_launch_background.xml.flat",
+        "source": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\android\\app\\src\\main\\res\\drawable\\launch_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_launcher_icon.png.flat",
+        "source": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\launcher_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_rzp_border.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\checkout-1.5.2.aar\\76541536796dc2282c7c0f58e657e904\\res\\drawable\\rzp_border.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_narrow_custom.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\media-1.0.0-rc01.aar\\117d5a968435d01395d7ac32beb7d4ea\\res\\layout\\notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_launcher_icon.png.flat",
+        "source": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\android\\app\\src\\main\\res\\mipmap-xhdpi\\launcher_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-watch-v20_common_google_signin_btn_text_dark_normal.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-auth-16.0.1.aar\\0d7233f34c89846a8b09ee4da1fe4503\\res\\drawable-watch-v20\\common_google_signin_btn_text_dark_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_light_normal.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable\\common_google_signin_btn_text_light_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_narrow.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\media-1.0.0-rc01.aar\\117d5a968435d01395d7ac32beb7d4ea\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_notification_bg_low.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_notification_template_part_chronometer.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-xhdpi-v4\\googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout-v21_notification_action_tombstone.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_notification_media_cancel_action.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\media-1.0.0-rc01.aar\\117d5a968435d01395d7ac32beb7d4ea\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_notification_template_media_custom.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\media-1.0.0-rc01.aar\\117d5a968435d01395d7ac32beb7d4ea\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_disabled.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable\\common_google_signin_btn_icon_disabled.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout-v21_notification_action.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_toast_custom.xml.flat",
+        "source": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\fluttertoast\\intermediates\\packaged_res\\debug\\layout\\toast_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_notification_template_icon_group.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\layout\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_rzp_loader_circle.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\checkout-1.5.2.aar\\76541536796dc2282c7c0f58e657e904\\res\\drawable\\rzp_loader_circle.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-watch-v20_common_google_signin_btn_text_light_normal.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-auth-16.0.1.aar\\0d7233f34c89846a8b09ee4da1fe4503\\res\\drawable-watch-v20\\common_google_signin_btn_text_light_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-mdpi-v4\\googleg_standard_color_18.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-mdpi_launcher_icon.png.flat",
+        "source": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\android\\app\\src\\main\\res\\mipmap-mdpi\\launcher_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_rzp_logo.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\checkout-1.5.2.aar\\76541536796dc2282c7c0f58e657e904\\res\\drawable-hdpi-v4\\rzp_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-mdpi-v4\\googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_light_focused.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable\\common_google_signin_btn_icon_light_focused.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_launcher_icon.png.flat",
+        "source": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\launcher_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_notification_bg.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-mdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_rzp_border_bottom.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\checkout-1.5.2.aar\\76541536796dc2282c7c0f58e657e904\\res\\drawable\\rzp_border_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_notification_template_part_time.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_rzp_poweredby.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\checkout-1.5.2.aar\\76541536796dc2282c7c0f58e657e904\\res\\drawable\\rzp_poweredby.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\color_common_google_signin_btn_text_light.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\color\\common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_rzp_logo.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\checkout-1.5.2.aar\\76541536796dc2282c7c0f58e657e904\\res\\drawable-xhdpi-v4\\rzp_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_activity_razorpay.xml.flat",
+        "source": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\razorpay_plugin\\intermediates\\packaged_res\\debug\\layout\\activity_razorpay.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_toast_bg.xml.flat",
+        "source": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\fluttertoast\\intermediates\\packaged_res\\debug\\drawable\\toast_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_full_open_on_phone.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-hdpi-v4\\common_full_open_on_phone.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-watch-v20_common_google_signin_btn_text_disabled.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-auth-16.0.1.aar\\0d7233f34c89846a8b09ee4da1fe4503\\res\\drawable-watch-v20\\common_google_signin_btn_text_disabled.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_rzp_magic_base.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\checkout-1.5.2.aar\\76541536796dc2282c7c0f58e657e904\\res\\layout\\rzp_magic_base.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_notification_media_action.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\media-1.0.0-rc01.aar\\117d5a968435d01395d7ac32beb7d4ea\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\media-1.0.0-rc01.aar\\117d5a968435d01395d7ac32beb7d4ea\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_light_normal.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable\\common_google_signin_btn_icon_light_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_light.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable\\common_google_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_dark.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-hdpi_launcher_icon.png.flat",
+        "source": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\android\\app\\src\\main\\res\\mipmap-hdpi\\launcher_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_notification_action_tombstone.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable-hdpi-v4\\googleg_standard_color_18.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark_normal.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable\\common_google_signin_btn_text_dark_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_rzp_white_border_black_bg.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\checkout-1.5.2.aar\\76541536796dc2282c7c0f58e657e904\\res\\drawable\\rzp_white_border_black_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-v21_notification_action_background.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_light.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\drawable\\common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\color_common_google_signin_btn_tint.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\3554d915033ca51c801f8391673ffce7\\res\\color\\common_google_signin_btn_tint.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_custom.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\media-1.0.0-rc01.aar\\117d5a968435d01395d7ac32beb7d4ea\\res\\layout\\notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout-v16_notification_template_custom_big.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\layout-v16\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_notification_template_media.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\media-1.0.0-rc01.aar\\117d5a968435d01395d7ac32beb7d4ea\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_notification_action.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\layout_notification_template_lines_media.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\media-1.0.0-rc01.aar\\117d5a968435d01395d7ac32beb7d4ea\\res\\layout\\notification_template_lines_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable_rzp_green_button.xml.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\checkout-1.5.2.aar\\76541536796dc2282c7c0f58e657e904\\res\\drawable\\rzp_green_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\ramu\\Desktop\\Flutter\\e-Bazaar\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "C:\\Users\\ramu\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0-rc01.aar\\28929d92282ee5c0d744edc8fd551d11\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
+    }
+]

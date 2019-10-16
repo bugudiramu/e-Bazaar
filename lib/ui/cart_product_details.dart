@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:razorpay_plugin/razorpay_plugin.dart';
+import 'package:shopping_cart/model/payment.dart';
 
 class CartProductDetails extends StatefulWidget {
   final cartProductName;
   final cartProductImage;
   final cartProductPrice;
-  final cartProductSize;
-  final cartProductColor;
-  final cartProductQty;
 
   CartProductDetails({
     this.cartProductName,
     this.cartProductImage,
     this.cartProductPrice,
-    this.cartProductSize,
-    this.cartProductColor,
-    this.cartProductQty,
   });
 
   @override
@@ -22,6 +18,85 @@ class CartProductDetails extends StatefulWidget {
 }
 
 class _CartProductDetailsState extends State<CartProductDetails> {
+  @override
+  void initState() {
+    super.initState();
+    print(widget.cartProductPrice * 100);
+  }
+
+  RozarPayModel key = RozarPayModel();
+
+  startPayment() async {
+    Map<String, dynamic> options = Map();
+    options.putIfAbsent("name", () => "${widget.cartProductName}");
+    options.putIfAbsent(
+        "image", () => "https://www.73lines.com/web/image/12427");
+    options.putIfAbsent("description", () => "RozarPay Transaction");
+    options.putIfAbsent("amount", () => "${widget.cartProductPrice * 100}");
+    options.putIfAbsent("email", () => "ramubugudi4@gmail.com");
+    options.putIfAbsent("contact", () => "8919308004");
+    options.putIfAbsent("theme", () => "#000000");
+    options.putIfAbsent("api_key", () => "${key.API_KEY}");
+    Map<dynamic, dynamic> paymentResponse = Map();
+    paymentResponse = await Razorpay.showPaymentForm(options);
+    print("response $paymentResponse");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Color(0xFFB33771),
+        title: Text("Cart"),
+      ),
+      body: Container(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.all(20.0),
+              child:
+                  Text("Cart Subtotal (1 item): ₹ ${widget.cartProductPrice}"),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 20.0, right: 20.0, top: 12.0, bottom: 20.0),
+              child: MaterialButton(
+                textColor: Colors.white,
+                padding: EdgeInsets.all(15.0),
+                child: Text("Proceed to Buy"),
+                onPressed: () async => startPayment(),
+                color: Color(0xFFB33771),
+              ),
+            ),
+            Divider(
+              height: 5.0,
+              color: Colors.grey,
+            ),
+            Card(
+              child: ListTile(
+                leading: Image.asset(
+                  "${widget.cartProductImage}",
+                ),
+                title: Text("${widget.cartProductName}"),
+                subtitle: Text("₹ ${widget.cartProductPrice}"),
+                trailing: IconButton(
+                  icon: Icon(Icons.delete_forever),
+                  onPressed: () {
+                    setState(() {});
+                  },
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/*
   List _productsAddedInTheCart = [
     {
       'name': 'Blazer',
@@ -145,7 +220,7 @@ class _CartProductDetailsState extends State<CartProductDetails> {
         );
       },
     );
-  }
+  
 
   void incrementInQty(int index) {
     setState(() {
@@ -159,5 +234,4 @@ class _CartProductDetailsState extends State<CartProductDetails> {
       _productsAddedInTheCart[index]['qty'] =
           _productsAddedInTheCart[index]['qty'] - 1;
     });
-  }
-}
+  }*/

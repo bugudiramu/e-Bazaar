@@ -152,39 +152,17 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                     ),
                   ),
                   SizedBox(height: 20.0),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      Transform(
-                        transform: Matrix4.translationValues(
-                            animation.value * width, 0.0, 0.0),
-                        child: Container(
-                          padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
-                          child: Text(
-                            "Login",
-                            style: _loginRegStyles(),
-                          ),
-                        ),
+                  Transform(
+                    transform: Matrix4.translationValues(
+                        animation.value * width, 0.0, 0.0),
+                    child: Container(
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
+                      child: Text(
+                        "Login".toUpperCase(),
+                        style: _loginRegStyles(),
                       ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => SignUp()));
-                        },
-                        child: Transform(
-                          transform: Matrix4.translationValues(
-                              animation.value * width, 0.0, 0.0),
-                          child: Container(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 30),
-                            alignment: Alignment.center,
-                            child: Text(
-                              "Register",
-                              style: _loginRegStyles(),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                   Transform(
                     transform: Matrix4.translationValues(
@@ -205,6 +183,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                                     // color: Colors.white,
                                     ),
                                 labelText: "Email"),
+                            // ignore: missing_return
                             validator: (val) {
                               if (val.isEmpty) {
                                 return "Please Provide Email";
@@ -241,6 +220,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                                 ),
                                 hintText: "Password",
                                 labelText: "Password"),
+                            // ignore: missing_return
                             validator: (val) {
                               if (val.length < 6) {
                                 return "Passsword must contain atleast 6 characters";
@@ -269,21 +249,20 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                               child: ListTile(
                                 title: Center(
                                   child: Text(
-                                    "Login",
+                                    "Login".toUpperCase(),
                                     style: _btnStyle(),
                                   ),
                                 ),
                               ),
                               onPressed: () async {
                                 print("login btn clicked!");
-
                                 signIn();
                               },
                               color: Color(0xFFB33771),
                             ),
                           ),
                           SizedBox(
-                            height: 5.0,
+                            height: 10.0,
                           ),
                           Transform(
                             transform: Matrix4.translationValues(
@@ -298,30 +277,63 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                                   style: TextStyle(
                                     decoration: TextDecoration.underline,
                                     color: Color(0xFFB33771),
+                                    fontSize: 16.0,
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                          SizedBox(
-                            height: 5.0,
-                          ),
 
-                          SizedBox(
-                            height: 15.0,
+                          SizedBox(height: 5.0),
+                          Transform(
+                            transform: Matrix4.translationValues(
+                                muchDelayedAnimation.value * width, 0.0, 0.0),
+                            child: Container(
+                              child: Text(
+                                "Don't have an accout !",
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                ),
+                              ),
+                            ),
                           ),
+                          SizedBox(height: 5.0),
                         ],
                       ),
                     ),
                   ),
-                  Visibility(
-                    visible: loading ?? true,
-                    child: Center(
-                      child: CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+                  SizedBox(height: 10.0),
+                  Transform(
+                    transform: Matrix4.translationValues(
+                        muchDelayedAnimation.value * width, 0.0, 0.0),
+                    child: MaterialButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(25.0)),
+                      minWidth: MediaQuery.of(context).size.width,
+                      child: ListTile(
+                        title: Center(
+                          child: Text(
+                            "Register".toUpperCase(),
+                            style: _btnStyle(),
+                          ),
+                        ),
                       ),
+                      onPressed: () {
+                        print("Register btn clicked!");
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => SignUp()));
+                      },
+                      color: Color(0xFFB33771),
                     ),
                   ),
+                  // Visibility(
+                  //   visible: loading ?? true,
+                  //   child: Center(
+                  //     child: CircularProgressIndicator(
+                  //       valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -355,8 +367,14 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
       try {
         await firebaseAuth.signInWithEmailAndPassword(
             email: _emailController.text, password: _passwordController.text);
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
+        // Navigator.pushReplacement(
+        //     context, MaterialPageRoute(builder: (context) => HomePage()));
+        // pushAndRemoveUtil makes users to not see the login screen when they press the back button
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage()),
+          (Route<dynamic> route) => true,
+        );
       } catch (e) {
         print(e.message);
       }
@@ -380,11 +398,11 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
               hintText: "Enter Your Email",
               labelText: "Email",
             ),
+            // ignore: missing_return
             validator: (val) {
               if (val.isEmpty) {
                 return "Please Provide Email";
               }
-              return "";
             },
             onSaved: (val) {
               _emailController.text = val;

@@ -36,7 +36,10 @@ class _CartState extends State<Cart> {
             height: 5.0,
             color: Colors.grey,
           ),
-          Container(height: 400.0, child: CartProductDetails()),
+          Container(
+              height: 400.0,
+              child: CartProductDetails(
+              )),
         ],
       ),
     );

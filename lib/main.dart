@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ThemeChanger>(
       builder: (_) => ThemeChanger(ThemeData.light()),
-      child: new MaterialAppWithTheme(),
+      child: MaterialAppWithTheme(),
     );
   }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hashbnm.razorpayplugin" >
+
+    <uses-sdk android:minSdkVersion="19" />
+
+    <application>
+        <activity
+            android:name="com.hashbnm.razorpayplugin.RazorpayActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden|navigation" />
+    </application>
+
+</manifest>
