@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:razorpay_plugin/razorpay_plugin.dart';
 import 'package:shopping_cart/model/payment.dart';
@@ -18,14 +19,15 @@ class CartProductDetails extends StatefulWidget {
 }
 
 class _CartProductDetailsState extends State<CartProductDetails> {
+  GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
+  var totoalCartPrice;
   @override
   void initState() {
     super.initState();
-    print(widget.cartProductPrice * 100);
   }
 
   RozarPayModel key = RozarPayModel();
-
+// Enables us to start the payment service
   startPayment() async {
     Map<String, dynamic> options = Map();
     options.putIfAbsent("name", () => "${widget.cartProductName}");
@@ -74,19 +76,47 @@ class _CartProductDetailsState extends State<CartProductDetails> {
               height: 5.0,
               color: Colors.grey,
             ),
-            Card(
-              child: ListTile(
-                leading: Image.asset(
-                  "${widget.cartProductImage}",
-                ),
-                title: Text("${widget.cartProductName}"),
-                subtitle: Text("₹ ${widget.cartProductPrice}"),
-                trailing: IconButton(
-                  icon: Icon(Icons.delete_forever),
-                  onPressed: () {
-                    setState(() {});
-                  },
-                ),
+            Container(
+              color: Colors.red,
+              height: 600.0,
+              child: StreamBuilder<QuerySnapshot>(
+                stream: Firestore.instance.collection('cartItems').snapshots(),
+                builder: (BuildContext context,
+                    AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (snapshot.hasData) {
+                    return ListView(
+                      children: snapshot.data.documents
+                          .map((DocumentSnapshot document) {
+                        return Card(
+                          child: ListTile(
+                            leading: Image.asset(
+                              "${document.data['image']}",
+                            ),
+                            title: Text("${document.data['name']}"),
+                            subtitle: Text("₹ ${document.data['price']}"),
+                            trailing: IconButton(
+                              icon: Icon(
+                                Icons.delete,
+                              ),
+                              onPressed: () async {
+                                setState(() {
+                                  totoalCartPrice = document.data['price'];
+                                  // liked = !liked;
+                                  Firestore.instance
+                                      .collection("cartItems")
+                                      .document(document.documentID)
+                                      .delete();
+                                });
+                              },
+                            ),
+                          ),
+                        );
+                      }).toList(),
+                    );
+                  } else {
+                    return Container();
+                  }
+                },
               ),
             ),
           ],

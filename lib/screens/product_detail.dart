@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/ui/cart_product_details.dart';
 import 'package:shopping_cart/ui/similar_products.dart';
@@ -23,9 +24,26 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
+  GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
+  bool liked = false;
+  String id;
+  DocumentSnapshot snapshot;
+  void readData() async {
+    snapshot =
+        await Firestore.instance.collection("favorites").document().get();
+    // print(snapshot.data['name']);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _key,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color(0xFFB33771),
@@ -33,13 +51,16 @@ class _ProductDetailsState extends State<ProductDetails> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.shopping_cart),
-            onPressed: () async {
-              Navigator.of(context).push(MaterialPageRoute(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
                   builder: (context) => CartProductDetails(
-                        cartProductName: widget.productDetailsName,
-                        cartProductImage: widget.productDetailsImage,
-                        cartProductPrice: widget.productDetailsPrice,
-                      )));
+                    cartProductName: widget.productDetailsName,
+                    cartProductImage: widget.productDetailsImage,
+                    cartProductPrice: widget.productDetailsPrice,
+                  ),
+                ),
+              );
             },
           ),
         ],
@@ -62,9 +83,26 @@ class _ProductDetailsState extends State<ProductDetails> {
               Padding(
                 padding: const EdgeInsets.only(top: 20.0, left: 20.0),
                 child: IconButton(
-                  color: Color(0xFFB33771),
-                  icon: Icon(Icons.favorite_border),
-                  onPressed: () {},
+                  color: liked ? Color(0xFFB33771) : Colors.grey,
+                  icon: liked
+                      ? Icon(Icons.favorite)
+                      : Icon(Icons.favorite_border),
+                  onPressed: () async {
+                    DocumentReference ref =
+                        await Firestore.instance.collection('favorites').add({
+                      'name': widget.productDetailsName,
+                      'image': widget.productDetailsImage,
+                      'price': widget.productDetailsPrice,
+                    });
+                    setState(() {
+                      liked = !liked;
+                      id = ref.documentID;
+                    });
+                    print(ref.documentID);
+                    _key.currentState.showSnackBar(SnackBar(
+                      content: Text("Added to Favorite"),
+                    ));
+                  },
                 ),
               ),
             ],
@@ -174,45 +212,35 @@ class _ProductDetailsState extends State<ProductDetails> {
               ],
             ),
           ),
-          //  ---------------------- Buy Now and Add to Cart Buttons ------------
+          //  ---------------------- Add to Cart Buttons ------------
 
-          // Padding(
-          //   padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
-          //   child: MaterialButton(
-          //     textColor: Colors.white,
-          //     padding: EdgeInsets.all(15.0),
-          //     child: Text("Buy Now"),
-          //     onPressed: () {},
-          //     color: Color(0xFFB33771),
-          //   ),
-          // ),
           Padding(
             padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 12.0),
             child: MaterialButton(
               textColor: Colors.white,
               padding: EdgeInsets.all(15.0),
               child: Text("Add to Cart"),
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => CartProductDetails(
-                    cartProductName: widget.productDetailsName,
-                    cartProductImage: widget.productDetailsImage,
-                    cartProductPrice: widget.productDetailsPrice,
-                  ),
+              onPressed: () async {
+                DocumentReference ref =
+                    await Firestore.instance.collection('cartItems').add({
+                  'name': widget.productDetailsName,
+                  'image': widget.productDetailsImage,
+                  'price': widget.productDetailsPrice,
+                });
+                setState(() {
+                  id = ref.documentID;
+                });
+
+                _key.currentState.showSnackBar(SnackBar(
+                  content: Text("Product Added in the Cart. 👍"),
                 ));
-                /* showDialog(
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                        content: Text("Product added to the Cart"),
-                        actions: <Widget>[
-                          FlatButton(
-                            child: Text("OK"),
-                            onPressed: () => Navigator.of(context).pop(),
-                          ),
-                        ],
-                      );
-                    });*/
+                // Navigator.of(context).push(MaterialPageRoute(
+                //   builder: (context) => CartProductDetails(
+                //     cartProductName: widget.productDetailsName,
+                //     cartProductImage: widget.productDetailsImage,
+                //     cartProductPrice: widget.productDetailsPrice,
+                //   ),
+                // ));
               },
               color: Color(0xFFB33771),
             ),

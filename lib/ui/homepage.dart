@@ -5,9 +5,9 @@ import 'package:provider/provider.dart';
 import 'package:shopping_cart/blocs/themeChanger.dart';
 import 'package:shopping_cart/screens/about.dart';
 import 'package:shopping_cart/screens/contact.dart';
+import 'package:shopping_cart/screens/favorites.dart';
 import 'package:shopping_cart/screens/loginPage.dart';
 import 'package:shopping_cart/screens/myAccount.dart';
-import 'package:shopping_cart/screens/myOrders.dart';
 import 'package:shopping_cart/screens/settings.dart';
 import 'package:shopping_cart/ui/recent_products.dart';
 
@@ -140,12 +140,15 @@ class _HomePageState extends State<HomePage> {
             ),
             InkWell(
               onTap: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => MyOrders()));
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => Favorites(),
+                  ),
+                );
               },
               child: _showList(
-                "My Orders",
-                (Icons.shopping_basket),
+                "Favorites",
+                (Icons.favorite),
               ),
             ),
             InkWell(
@@ -200,25 +203,15 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         backgroundColor: Color(0xFFB33771),
         title: Text("e-Bazaar"),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              showSearch(context: context, delegate: ProductSearch());
-            },
-          ),
-          /* IconButton(
-            icon: Icon(Icons.shopping_cart),
-            onPressed: () async {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => CartProductDetails(
-                        cartProductName: widget.searchProdName,
-                        cartProductImage: widget.searchProdImage,
-                        cartProductPrice: widget.searchProdPrice,
-                      )));
-            },
-          ),*/
-        ],
+        // Showing Search Bar
+        // actions: <Widget>[
+        //   IconButton(
+        //     icon: Icon(Icons.search),
+        //     onPressed: () {
+        //       showSearch(context: context, delegate: ProductSearch());
+        //     },
+        //   ),
+        // ],
       ),
       body: Column(
         children: <Widget>[
@@ -279,95 +272,95 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-// SearchBar
+//* SearchBar
 
-class ProductSearch extends SearchDelegate<String> {
-  // final List searchProd = ["arr", "allow", "Blazer", "ramu", "haz"];
-  final List searchProd = [
-    'Blazer',
-    'Red-Blazer',
-    'Dress',
-    'Jeans',
-    'Green-T-Shirt',
-    'T-Shirt',
-    'Skirt1',
-    'Skirt2',
-    'Shoe1',
-    'Shoe2',
-    'Heel1',
-    'Heel2',
-  ];
-  final List recentSearchProd = [
-    'Blazer',
-    'Jeans',
-    'Skirt1',
-  ];
-  @override
-  List<Widget> buildActions(BuildContext context) {
-    // Actions for appbar
-    return [
-      IconButton(
-        icon: Icon(Icons.clear),
-        onPressed: () {
-          query = "";
-        },
-      )
-    ];
-  }
+// class ProductSearch extends SearchDelegate<String> {
+//   // final List searchProd = ["arr", "allow", "Blazer", "ramu", "haz"];
+//   final List searchProd = [
+//     'Blazer',
+//     'Red-Blazer',
+//     'Dress',
+//     'Jeans',
+//     'Green-T-Shirt',
+//     'T-Shirt',
+//     'Skirt1',
+//     'Skirt2',
+//     'Shoe1',
+//     'Shoe2',
+//     'Heel1',
+//     'Heel2',
+//   ];
+//   final List recentSearchProd = [
+//     'Blazer',
+//     'Jeans',
+//     'Skirt1',
+//   ];
+//   @override
+//   List<Widget> buildActions(BuildContext context) {
+//     // Actions for appbar
+//     return [
+//       IconButton(
+//         icon: Icon(Icons.clear),
+//         onPressed: () {
+//           query = "";
+//         },
+//       )
+//     ];
+//   }
 
-  @override
-  Widget buildLeading(BuildContext context) {
-    // Leading icon
-    return IconButton(
-      onPressed: () {
-        close(context, null);
-      },
-      icon: AnimatedIcon(
-        icon: AnimatedIcons.menu_arrow,
-        progress: transitionAnimation,
-      ),
-    );
-  }
+//   @override
+//   Widget buildLeading(BuildContext context) {
+//     // Leading icon
+//     return IconButton(
+//       onPressed: () {
+//         close(context, null);
+//       },
+//       icon: AnimatedIcon(
+//         icon: AnimatedIcons.menu_arrow,
+//         progress: transitionAnimation,
+//       ),
+//     );
+//   }
 
-  @override
-  Widget buildResults(
-    BuildContext context,
-  ) {
-    // show results for given keyword
+//   @override
+//   Widget buildResults(
+//     BuildContext context,
+//   ) {
+//     // show results for given keyword
 
-    return Center(
-        child: CircularProgressIndicator(backgroundColor: Colors.redAccent));
-  }
+//     return Center(
+//         child: CircularProgressIndicator(backgroundColor: Colors.redAccent));
+//   }
 
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    // shows suggestions for keyword
-    final suggestionList = query.isEmpty
-        ? recentSearchProd
-        : searchProd.where((s) => s.toLowerCase().startsWith(query)).toList();
-    // contains,startswith,endswith and so on
-    return ListView.builder(
-      itemCount: suggestionList.length,
-      itemBuilder: (_, int i) {
-        return ListTile(
-          onTap: () {
-            showResults(context);
-          },
-          leading: Icon(Icons.shopping_basket),
-          title: RichText(
-            text: TextSpan(
-              text: suggestionList[i].substring(0, query.length),
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-              children: [
-                TextSpan(
-                    text: suggestionList[i].substring(query.length),
-                    style: TextStyle(color: Colors.grey)),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
-}
+//   @override
+//   Widget buildSuggestions(BuildContext context) {
+//     // shows suggestions for keyword
+//     final suggestionList = query.isEmpty
+//         ? recentSearchProd
+//         : searchProd.where((s) => s.toLowerCase().startsWith(query)).toList();
+//     // contains,startswith,endswith and so on
+//     return ListView.builder(
+//       itemCount: suggestionList.length,
+//       itemBuilder: (_, int i) {
+//         return ListTile(
+//           onTap: () {
+//             showResults(context);
+//           },
+//           leading: Icon(Icons.shopping_basket),
+//           title: RichText(
+//             text: TextSpan(
+//               text: suggestionList[i].substring(0, query.length),
+//               style:
+//                   TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+//               children: [
+//                 TextSpan(
+//                     text: suggestionList[i].substring(query.length),
+//                     style: TextStyle(color: Colors.grey)),
+//               ],
+//             ),
+//           ),
+//         );
+//       },
+//     );
+//   }
+// }
