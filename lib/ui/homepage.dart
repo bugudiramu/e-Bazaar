@@ -9,19 +9,10 @@ import 'package:shopping_cart/screens/favorites.dart';
 import 'package:shopping_cart/screens/loginPage.dart';
 import 'package:shopping_cart/screens/myAccount.dart';
 import 'package:shopping_cart/screens/settings.dart';
+import 'package:shopping_cart/ui/cart_product_details.dart';
 import 'package:shopping_cart/ui/recent_products.dart';
 
 class HomePage extends StatefulWidget {
-  final searchProdName;
-  final searchProdImage;
-  final searchProdPrice;
-
-  HomePage({
-    this.searchProdName,
-    this.searchProdImage,
-    this.searchProdPrice,
-  });
-
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -203,6 +194,16 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         backgroundColor: Color(0xFFB33771),
         title: Text("e-Bazaar"),
+        // Showing Cart Icon
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.add_shopping_cart),
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => CartProductDetails()));
+            },
+          ),
+        ],
         // Showing Search Bar
         // actions: <Widget>[
         //   IconButton(
@@ -229,7 +230,7 @@ class _HomePageState extends State<HomePage> {
           //grid view
           Flexible(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
+              padding: const EdgeInsets.only(bottom: 0.0),
               child: RecentProducts(),
             ),
           ),

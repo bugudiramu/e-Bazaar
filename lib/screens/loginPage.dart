@@ -326,14 +326,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                       color: Color(0xFFB33771),
                     ),
                   ),
-                  // Visibility(
-                  //   visible: loading ?? true,
-                  //   child: Center(
-                  //     child: CircularProgressIndicator(
-                  //       valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
-                  //     ),
-                  //   ),
-                  // ),
+                
                 ],
               ),
             ),
@@ -420,13 +413,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
         FlatButton(
           child: Text("Send"),
           onPressed: () async {
-            // if (_resetKey.currentState.validate()) {
-            //   _resetKey.currentState.save();
-            //   _resetKey.currentState.reset();
-            //   await firebaseAuth.sendPasswordResetEmail(
-            //       email: _emailController.text);
-            //   Navigator.of(context).pop();
-            // }
+          
             Navigator.of(context).pop();
           },
         ),

@@ -280,21 +280,6 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                               ),
                               onPressed: () async {
                                 signUpUser();
-
-                                // Used for showing the dialog (Use pageview widget recommended)
-                                // showDialog(
-                                //   context: context,
-                                //   builder: (_) => AlertDialog(
-                                //     content: Text(
-                                //         "Account created succssfully please login to continue!"),
-                                //     actions: <Widget>[
-                                //       FlatButton(
-                                //         onPressed: () => Navigator.pop(context),
-                                //         child: Text("OK"),
-                                //       )
-                                //     ],
-                                //   ),
-                                // );
                               },
                               color: Color(0xFFB33771),
                             ),

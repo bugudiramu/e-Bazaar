@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shopping_cart/ui/cart_product_details.dart';
 import 'package:shopping_cart/ui/similar_products.dart';
 
@@ -24,33 +25,19 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
-  GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
   bool liked = false;
   String id;
-  DocumentSnapshot snapshot;
-  void readData() async {
-    snapshot =
-        await Firestore.instance.collection("favorites").document().get();
-    // print(snapshot.data['name']);
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    readData();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _key,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color(0xFFB33771),
         title: Text("e-Bazaar"),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.shopping_cart),
+            icon: Icon(Icons.add_shopping_cart),
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -99,9 +86,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                       id = ref.documentID;
                     });
                     print(ref.documentID);
-                    _key.currentState.showSnackBar(SnackBar(
-                      content: Text("Added to Favorite"),
-                    ));
+                    Fluttertoast.showToast(
+                        msg: "Item Added to Favorites",
+                        toastLength: Toast.LENGTH_LONG);
                   },
                 ),
               ),
@@ -111,7 +98,6 @@ class _ProductDetailsState extends State<ProductDetails> {
             height: 300.0,
             child: Image.asset(
               widget.productDetailsImage,
-              // fit: BoxFit.cover,
             ),
           ),
           // --------------- Size , Color ,Quantity Buttons------------------
@@ -231,16 +217,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                   id = ref.documentID;
                 });
 
-                _key.currentState.showSnackBar(SnackBar(
-                  content: Text("Product Added in the Cart. 👍"),
-                ));
-                // Navigator.of(context).push(MaterialPageRoute(
-                //   builder: (context) => CartProductDetails(
-                //     cartProductName: widget.productDetailsName,
-                //     cartProductImage: widget.productDetailsImage,
-                //     cartProductPrice: widget.productDetailsPrice,
-                //   ),
-                // ));
+                Fluttertoast.showToast(
+                  msg: "Product Added to Cart",
+                );
               },
               color: Color(0xFFB33771),
             ),
