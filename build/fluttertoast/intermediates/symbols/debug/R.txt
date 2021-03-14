@@ -1,3 +1,0 @@
-int drawable toast_bg 0x7f090001
-int id text 0x7f0c0001
-int layout toast_custom 0x7f0f0001
